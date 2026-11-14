@@ -274,7 +274,7 @@
         "name": "매월 적립금은 언제 넣는 것으로 계산되나요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "매월 말에 납입하는 것으로 계산합니다. 월 이율은 연 수익률을 12로 나누지 않고, 12개월 복리를 거꾸로 풀어(1+r)^(1/12)-1로 환산해 적용하므로 12개월을 모으면 연 수익률과 정확히 일치합니다."
+          "text": "매월 말에 납입하는 것으로 계산합니다. 월 이율은 연 수익률을 12로 나누지 않고, 12개월 복리를 거꾸로 풀어 (1+r)^(1/12)−1로 환산해 적용하므로 12개월을 모으면 연 수익률과 정확히 일치합니다."
         }
       },
       {
@@ -282,7 +282,7 @@
         "name": "표시되는 수익은 세금과 수수료를 뺀 금액인가요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "아닙니다. 세전 기준이며 거래 수수료, 세금, 환전 비용은 반영하지 않습니다. 실제 수령액은 이보다 적을 수 있습니다."
+          "text": "아닙니다. 세전 기준이며 거래 수수료, 세금, 환전 비용은 반영하지 않습니다. 해외 자산은 배당세와 양도세, 국내 펀드는 운용 보수까지 빠지므로 실제 수령액은 이보다 적습니다."
         }
       },
       {
@@ -290,7 +290,7 @@
         "name": "코인처럼 변동성이 큰 자산에도 쓸 수 있나요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "평균 수익률을 가정한 계산이므로 변동성이 큰 자산에는 낙관적인 결과가 나옵니다. 같은 기간에 -70% 하락이 끼면 실제 결과는 크게 달라질 수 있으니, 수익률을 낮춰 여러 번 계산해 보는 편이 안전합니다."
+          "text": "평균 수익률을 가정한 계산이므로 변동성이 큰 자산에는 낙관적인 결과가 나옵니다. 5년 사이에 −70% 하락이 한 번 끼기만 해도 실제 결과는 크게 달라집니다. 코인이라면 기대 수익률을 낮춰 여러 번 계산하고, 원금이 0에 가까워지는 경우도 함께 가정해 두는 편이 안전합니다."
         }
       },
       {
@@ -298,7 +298,7 @@
         "name": "원금 대비 수익률과 연평균 수익률은 어떻게 다른가요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "이 사이트의 '원금 대비 수익률'은 납입한 원금 전체로 나눈 총 수익률입니다. 연평균 수익률(CAGR)은 이를 기간으로 나눈 값이라 숫자가 훨씬 작게 보입니다."
+          "text": "'원금 대비 수익률'은 납입한 원금 전체로 나눈 총 수익률입니다. 10년 동안 200%가 나왔다면 연평균으로는 약 11.6%입니다. 기간이 길수록 두 숫자의 차이가 커지므로, 다른 상품과 비교할 때는 연평균으로 맞춰 봐야 합니다. 적립식의 연평균 수익률은 입력한 수익률과 사실상 같아서 이 계산기에서는 따로 표시하지 않고, 대신 복리 수익이 원금을 넘어서는 시점을 보여줍니다."
         }
       },
       {
@@ -314,7 +314,7 @@
         "name": "물가 2%는 계산에 어떻게 반영되나요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "'물가 2% 감안 실질 가치'는 최종 자산을 물가상승률 2%로 나눈 오늘의 구매력입니다. 명목 금액이 10억이어도 25년 뒤에는 지금의 6억 원 정도 가치라는 뜻입니다."
+          "text": "'물가 2% 감안 실질 가치'는 최종 자산을 1.02의 기간 제곱으로 나눈 오늘의 구매력입니다. 25년 뒤 10억 원은 물가가 연 2%씩 오르면 지금의 약 6억 원과 같은 값어치입니다."
         }
       },
       {
@@ -322,7 +322,7 @@
         "name": "계산 결과와 실제 수익이 다른 이유는 무엇인가요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "실제 시장은 매년 수익률이 달라지고, 하락장에서는 원금이 줄어든 상태로 적립이 이어집니다. 이 계산기는 매년 같은 수익률이 유지된다고 가정한 참고용 시뮬레이션입니다."
+          "text": "실제 시장은 매년 수익률이 달라지고, 하락장에서는 원금이 줄어든 상태로 적립이 이어집니다. 이 계산기는 매년 같은 수익률이 유지된다고 가정한 참고용 시뮬레이션이며, 투자 판단의 근거가 아니라 계획을 세우는 도구로 쓰는 것이 맞습니다."
         }
       },
       {
@@ -430,8 +430,8 @@
             <div class="stat-v small" id="res-real">-</div>
           </div>
           <div class="stat">
-            <div class="stat-k">연평균 수익률(CAGR)</div>
-            <div class="stat-v small" id="res-cagr">-</div>
+            <div class="stat-k">복리 수익이 원금을 넘어선 시점</div>
+            <div class="stat-v small" id="res-cross">-</div>
           </div>
         </div>
       </div>
@@ -508,7 +508,7 @@
       <li><strong>원금 대비 수익률</strong>: 순수 수익 ÷ 원금. 기간을 나누지 않은 총 수익률이라 숫자가 크게 보입니다.</li>
       <li><strong>만기 시 연 4% 월 현금</strong>: 모은 자산을 연 4%씩 꺼내 쓸 때의 월 금액. 은퇴 후 현금흐름을 가늠하는 참고값입니다.</li>
       <li><strong>물가 2% 감안 실질 가치</strong>: 물가상승률 2%를 반영한 오늘의 구매력. 명목 금액보다 이 숫자가 실제 생활에 가깝습니다.</li>
-      <li><strong>연평균 수익률(CAGR)</strong>: 납입 시점과 금액으로 가중한 평균 투자 기간을 기준으로 계산한 연평균 성장률입니다. 목돈을 한 번에 넣었을 때는 입력한 수익률과 거의 같게 나옵니다.</li>
+      <li><strong>복리 수익이 원금을 넘어선 시점</strong>: 납입한 원금보다 시장이 벌어다 준 돈이 더 커지는 해입니다. 이 해를 넘기면 이후에는 원금보다 수익이 더 빨리 불어납니다. 기간 안에 넘지 못하면 '기간 내 미달'로 표시됩니다.</li>
     </ul>
     <div class="callout">
       상단 프리셋 버튼을 누르면 실제 계획에 가까운 조건이 한 번에 들어갑니다. 예를 들어 <strong>비텐서 월 15만(25년)</strong>은 소액 적립을 오래 끌고 갈 때의 결과를, <strong>퇴직금 3.1억 SCHD</strong>는 목돈을 배당주에 넣고 재투자할 때의 결과를 보여줍니다.
@@ -562,7 +562,7 @@
 
     <details class="faq">
       <summary>매월 적립금은 언제 넣는 것으로 계산되나요?</summary>
-      <p>매월 말에 납입하는 것으로 계산합니다. 월 이율은 연 수익률을 12로 나누지 않고, 12개월 복리를 거꾸로 풀어 (1+r)<sup>1/12</sup>−1로 환산해 적용하므로 12개월을 모으면 연 수익률과 정확히 일치합니다.</p>
+      <p>매월 말에 납입하는 것으로 계산합니다. 월 이율은 연 수익률을 12로 나누지 않고, 12개월 복리를 거꾸로 풀어 (1+r)^(1/12)−1로 환산해 적용하므로 12개월을 모으면 연 수익률과 정확히 일치합니다.</p>
     </details>
 
     <details class="faq">
@@ -577,7 +577,7 @@
 
     <details class="faq">
       <summary>원금 대비 수익률과 연평균 수익률은 어떻게 다른가요?</summary>
-      <p>'원금 대비 수익률'은 납입한 원금 전체로 나눈 총 수익률입니다. 10년 동안 200%가 나왔다면 연평균으로는 약 11.6%입니다. 기간이 길수록 두 숫자의 차이가 커지므로, 다른 상품과 비교할 때는 연평균(CAGR)으로 맞춰 봐야 합니다.</p>
+      <p>'원금 대비 수익률'은 납입한 원금 전체로 나눈 총 수익률입니다. 10년 동안 200%가 나왔다면 연평균으로는 약 11.6%입니다. 기간이 길수록 두 숫자의 차이가 커지므로, 다른 상품과 비교할 때는 연평균으로 맞춰 봐야 합니다. 적립식의 연평균 수익률은 입력한 수익률과 사실상 같아서 이 계산기에서는 따로 표시하지 않고, 대신 복리 수익이 원금을 넘어서는 시점을 보여줍니다.</p>
     </details>
 
     <details class="faq">
@@ -661,17 +661,13 @@ function calcCompound() {
   // 실질 가치: 물가상승률 연 2% 반영
   const realValue = last.balance / Math.pow(1.02, years);
 
-  // 연평균 수익률(CAGR): 납입 금액과 시점으로 가중한 평균 투자 기간을 쓴 근사값
-  let cagrText = '—';
-  if (last.principal > 0 && last.balance > 0) {
-    const months = years * 12;
-    // 초기금은 전 기간, 매월 적립금은 납입이 끝난 뒤부터 남은 기간만큼 투자된 것으로 봄
-    const investedMonths = init * months + monthly * (months * (months + 1) / 2);
-    const avgYears = investedMonths / last.principal / 12;
-    if (avgYears > 0) {
-      const cagr = (Math.pow(last.balance / last.principal, 1 / avgYears) - 1) * 100;
-      if (isFinite(cagr)) cagrText = `${cagr.toFixed(1)}%`;
-    }
+  // 복리 수익이 납입 원금을 처음 추월하는 시점 (복리가 본격적으로 앞서가는 지점)
+  let crossText = '—';
+  const crossRow = rows.find(r => r.principal > 0 && r.profit > r.principal);
+  if (crossRow) {
+    crossText = `${crossRow.y}년차`;
+  } else if (last.principal > 0) {
+    crossText = `${years}년 내 미달`;
   }
 
   document.getElementById('hero-sub').textContent = `${years}년 후 예상 최종 자산 (연 ${(rate * 100).toFixed(1)}% 복리)`;
@@ -681,7 +677,7 @@ function calcCompound() {
   document.getElementById('res-pct').textContent = `+${Math.round(pct).toLocaleString()}%`;
   document.getElementById('res-monthly-cash').textContent = `월 ${Math.round((last.balance * 0.04) / 12).toLocaleString()}만 원`;
   document.getElementById('res-real').textContent = fmtKRW(realValue);
-  document.getElementById('res-cagr').textContent = cagrText;
+  document.getElementById('res-cross').textContent = crossText;
   document.getElementById('bar-p').style.width = `${pRatio.toFixed(1)}%`;
   document.getElementById('bar-r').style.width = `${(100 - pRatio).toFixed(1)}%`;
 
