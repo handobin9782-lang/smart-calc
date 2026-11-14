@@ -458,7 +458,7 @@ function calcSalary() {
 
   const rows = [
     ['급여 총액(세전)', won(monthlyGross), '월 기준', ''],
-    ['비과세 식대', '−' + won(meal), '월 20만 원까지 비과세', 'muted'],
+    ['비과세 식대', won(meal), '월 20만 원까지 과세 제외', 'muted'],
     ['과세 보수월액', won(monthlyTaxable), '보험·세금 계산 기준', ''],
     ['국민연금', '−' + won(pension), '4.75% · 기준소득월액 상한 659만', 'deduct'],
     ['건강보험', '−' + won(health), '3.595%', 'deduct'],

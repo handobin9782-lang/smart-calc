@@ -364,6 +364,7 @@ function applyLoanPreset(amount, rate, years, grace) {
 // 만원 단위 숫자를 '1억 2,345만 원' 형태로
 function fmtWon(manwon) {
   const v = Math.round(manwon);
+  if (v === 0) return '0원';
   if (v >= 10000) {
     const eok = Math.floor(v / 10000);
     const rem = v % 10000;

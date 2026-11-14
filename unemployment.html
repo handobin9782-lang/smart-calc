@@ -189,10 +189,6 @@
       <div class="hero-label">1일 구직급여액 (예상)</div>
       <div class="hero-val" id="hero-val">-</div>
       <div class="hero-sub" id="hero-sub">-</div>
-      <div class="bar-wrap">
-        <div class="bar-principal" id="bar-p" style="width:60%"></div>
-        <div class="bar-profit" id="bar-r" style="width:40%"></div>
-      </div>
       <div class="stats">
         <div class="stat">
           <div class="stat-k">소정급여일수</div>
@@ -417,10 +413,6 @@ function calcUnemp() {
   document.getElementById('res-base').textContent = won(base);
   document.getElementById('res-band').textContent = band;
   document.getElementById('res-raw').textContent = won(raw);
-
-  const pRatio = total > 0 ? (total - 0) / total * 100 : 100;
-  document.getElementById('bar-p').style.width = '100%';
-  document.getElementById('bar-r').style.width = '0%';
 
   document.getElementById('tbody').innerHTML = `
     <tr><td>3개월 평균 월급</td><td>${won(salary)}</td><td>입력값</td></tr>
