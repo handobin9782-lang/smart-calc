@@ -1,0 +1,254 @@
+/* 복리·적립식 자산 계산기 — 공통 스타일 (모든 계산기 페이지가 함께 씀) */
+:root {
+  --bg: #0b1020;
+  --card: #131a2e;
+  --card2: #1a233d;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f6ff;
+  --muted: #93a1c6;
+  --accent: #38d399;
+  --accent2: #60a5fa;
+  --gold: #fbbf24;
+  --danger: #f87171;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 16px 14px 36px;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px; flex-wrap: wrap; gap: 8px;
+}
+.title { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; margin: 0; }
+.title small { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.title a { color: inherit; text-decoration: none; }
+
+/* 상단 계산기 이동 바 */
+.site-nav {
+  display: flex; gap: 4px; overflow-x: auto; margin-bottom: 6px;
+  scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a {
+  flex: 0 0 auto; color: var(--muted); text-decoration: none; font-size: 13px;
+  font-weight: 600; padding: 8px 10px; border-radius: 9px; border: 1px solid transparent;
+  white-space: nowrap;
+}
+.site-nav a:hover { color: var(--text); border-color: var(--border); }
+.site-nav a.current {
+  color: var(--text); background: var(--card2); border-color: var(--border); font-weight: 700;
+}
+.section-nav {
+  display: flex; gap: 4px; overflow-x: auto; margin-bottom: 14px;
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav a {
+  flex: 0 0 auto; color: var(--muted); text-decoration: none; font-size: 12.5px;
+  font-weight: 600; padding: 6px 9px; border-radius: 8px;
+}
+.section-nav a:hover { color: var(--text); background: var(--card2); }
+
+.tabs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  background: var(--card); padding: 5px; border-radius: 14px;
+  border: 1px solid var(--border); margin-bottom: 14px;
+}
+.tab-btn {
+  border: 0; background: transparent; color: var(--muted);
+  font-size: 14px; font-weight: 700; padding: 10px 8px; border-radius: 10px;
+  cursor: pointer; transition: 0.15s; font-family: inherit;
+}
+.tab-btn.active {
+  background: var(--card2); color: var(--text);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.panel { display: none; }
+.panel.active { display: block; }
+
+.presets {
+  display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 10px;
+  scrollbar-width: none;
+}
+.presets::-webkit-scrollbar { display: none; }
+.preset-btn {
+  flex: 0 0 auto; border: 1px solid var(--border);
+  background: var(--card); color: var(--text);
+  padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.preset-btn:active { transform: scale(0.97); }
+.preset-btn.active { border-color: rgba(56,211,153,0.6); color: var(--accent); }
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 16px; margin-bottom: 12px;
+}
+.input-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.input-grid.three { grid-template-columns: 1fr 1fr; }
+.field { min-width: 0; }
+.field label {
+  display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; font-weight: 600;
+}
+.input-box {
+  display: flex; align-items: center; background: var(--card2);
+  border: 1px solid var(--border); border-radius: 12px; padding: 0 10px;
+}
+.input-box input, .input-box select {
+  width: 100%; border: 0; background: transparent; color: var(--text);
+  font-size: 16px; font-weight: 700; padding: 10px 0; outline: none;
+  font-family: inherit;
+}
+.input-box input[type="date"] { font-size: 15px; }
+.input-box select { appearance: none; }
+.input-box:focus-within { border-color: rgba(56,211,153,0.5); }
+.unit { font-size: 12px; color: var(--muted); font-weight: 600; margin-left: 4px; white-space: nowrap; }
+
+.segmented {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  background: var(--card2); padding: 5px; border-radius: 14px; border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.seg-btn {
+  border: 0; background: transparent; color: var(--muted); font-family: inherit;
+  font-size: 13px; font-weight: 700; padding: 9px 4px; border-radius: 10px; cursor: pointer;
+}
+.seg-btn.active { background: var(--card); color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+
+.result-hero {
+  background: linear-gradient(135deg, #13283d, #131a2e);
+  border: 1px solid rgba(56, 211, 153, 0.25);
+}
+.hero-label { font-size: 12px; color: var(--accent); font-weight: 700; }
+.hero-val { font-size: 28px; font-weight: 900; margin: 4px 0 10px; letter-spacing: -0.5px; }
+.hero-sub { font-size: 12px; color: var(--muted); margin: -4px 0 10px; }
+.bar-wrap {
+  height: 10px; border-radius: 999px; background: #263252; overflow: hidden;
+  display: flex; margin-bottom: 12px;
+}
+.bar-principal { background: var(--accent2); height: 100%; transition: width 0.25s; }
+.bar-profit { background: var(--accent); height: 100%; transition: width 0.25s; }
+.stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.stat {
+  background: rgba(255,255,255,0.03); border-radius: 12px; padding: 10px;
+}
+.stat-k { font-size: 11px; color: var(--muted); }
+.stat-v { font-size: 15px; font-weight: 800; margin-top: 2px; }
+.stat-v.small { font-size: 13px; }
+.green { color: var(--accent); }
+.blue { color: var(--accent2); }
+.gold { color: var(--gold); }
+.red { color: var(--danger); }
+
+.chart {
+  display: flex; align-items: flex-end; gap: 4px; height: 120px;
+  padding-top: 12px; border-bottom: 1px solid var(--border);
+}
+.bar-col {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;
+}
+.bar-stack {
+  width: 100%; max-width: 24px; border-radius: 5px 5px 0 0; overflow: hidden;
+  display: flex; flex-direction: column-reverse;
+}
+.bar-lbl { font-size: 10px; color: var(--muted); margin-top: 5px; }
+.chart-legend {
+  display: flex; gap: 14px; margin-top: 8px; font-size: 11px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 3px; margin-right: 4px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+th, td { text-align: right; padding: 7px 4px; border-bottom: 1px solid var(--border); }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--muted); font-weight: 600; }
+.table-scroll { overflow-x: auto; }
+
+/* 일반 계산기 */
+.calc-screen {
+  background: var(--card2); border-radius: 16px; padding: 16px; text-align: right;
+  margin-bottom: 12px; border: 1px solid var(--border);
+}
+.calc-expr { font-size: 13px; color: var(--muted); min-height: 18px; word-break: break-all; }
+.calc-val { font-size: 32px; font-weight: 800; margin-top: 4px; word-break: break-all; }
+.calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.ckey {
+  border: 0; border-radius: 14px; padding: 16px 0; font-size: 19px; font-weight: 700;
+  background: var(--card2); color: var(--text); cursor: pointer; font-family: inherit;
+}
+.ckey:active { transform: scale(0.95); }
+.ckey.op { background: #1e2d4f; color: var(--accent2); }
+.ckey.eq { background: var(--accent); color: #052014; }
+.ckey.fn { background: #23283d; color: var(--gold); }
+
+/* 문서 */
+section.doc { margin-top: 26px; }
+section.doc h2 {
+  font-size: 18px; font-weight: 800; margin: 30px 0 10px;
+  letter-spacing: -0.3px; padding-top: 4px;
+}
+section.doc h2:first-of-type { margin-top: 8px; }
+section.doc h3 { font-size: 15px; font-weight: 700; margin: 18px 0 6px; color: var(--gold); }
+section.doc p { font-size: 14px; color: #d5ddff; margin: 8px 0; }
+section.doc ul, section.doc ol { font-size: 14px; color: #d5ddff; padding-left: 20px; margin: 8px 0; }
+section.doc li { margin: 5px 0; }
+section.doc strong { color: var(--text); }
+section.doc a { color: var(--accent2); }
+.callout {
+  background: rgba(96,165,250,0.08); border-left: 3px solid var(--accent2);
+  border-radius: 0 12px 12px 0; padding: 12px 14px; font-size: 13.5px; color: #d5ddff;
+  margin: 14px 0;
+}
+.callout.warn { background: rgba(251,191,36,0.08); border-left-color: var(--gold); }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 10px 0; }
+.doc-table th, .doc-table td { border-bottom: 1px solid var(--border); padding: 8px 6px; text-align: right; }
+.doc-table th:first-child, .doc-table td:first-child { text-align: left; }
+.doc-table th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.02); }
+.doc-table td:first-child { color: var(--text); }
+
+details.faq {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 12px 14px; margin-bottom: 8px;
+}
+details.faq summary {
+  font-size: 14px; font-weight: 700; cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; gap: 10px; align-items: flex-start;
+}
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq summary::after { content: "+"; color: var(--accent); font-size: 18px; line-height: 1; }
+details.faq[open] summary::after { content: "−"; }
+details.faq p { font-size: 13.5px; color: #c3cdf0; margin: 10px 0 2px; }
+
+.ad-slot { display: none; text-align: center; margin: 18px 0; min-height: 90px; }
+
+footer.site-footer {
+  margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted);
+}
+footer.site-footer p { margin: 6px 0; line-height: 1.7; }
+footer.site-footer a { color: var(--accent2); text-decoration: none; }
+footer.site-footer a:hover { text-decoration: underline; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 10px 0 4px; }
+
+@media (min-width: 640px) {
+  .title { font-size: 22px; }
+  .hero-val { font-size: 34px; }
+  section.doc p, section.doc ul, section.doc ol { font-size: 15px; }
+  .chart { height: 160px; }
+  .presets { flex-wrap: wrap; overflow-x: visible; }
+  .input-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+}

@@ -33,7 +33,7 @@ d.text((x0 + pad_x, y0 + pad_y - 3), "무료 계산기", font=pill_font, fill=(5
 
 # title
 title_font = f(80)
-d.text((74, 122), "복리·적립식 자산 계산기", font=title_font,
+d.text((74, 122), "생활·금융 계산기", font=title_font,
        fill=(243, 246, 255), stroke_width=2, stroke_fill=(243, 246, 255))
 
 # subtitle
@@ -42,7 +42,7 @@ d.text((78, 240), "월 50만 원 × 15년이면 얼마가 될까?", font=sub_fon
 
 # third line (blue)
 line3_font = f(29)
-d.text((78, 300), "주식 · ETF · 코인 · 공제회 · 연금 적립 시뮬레이터", font=line3_font,
+d.text((78, 300), "복리 · 대출 · 연봉 · 연차 · 실업급여 5가지 계산기", font=line3_font,
        fill=(96, 165, 250))
 
 # growth bars

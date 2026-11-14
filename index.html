@@ -6,11 +6,12 @@
   <title>복리·적립식 자산 계산기 | 주식·ETF·코인·공제회·연금 시뮬레이터</title>
   <meta name="description" content="초기 투자금과 매월 적립금, 연 수익률, 기간을 입력하면 복리로 불어난 최종 자산과 순수 복리 수익, 원금 대비 수익률, 연도별 성장을 바로 계산합니다. 주식·ETF 적립, 공제회·연금, 코인 적립식, 목돈 배당 재투자 프리셋과 일반 계산기까지 무료로 제공." />
   <meta name="keywords" content="복리 계산기, 적립식 계산기, 복리 이자 계산, 주식 적립식 계산기, ETF 적립 계산기, 코인 적립식, 공제회 적립, 연금 계산기, 배당 재투자 계산기, 은퇴 자산 시뮬레이터" />
-  <meta name="author" content="복리·적립식 자산 계산기" />
+  <meta name="author" content="생활·금융 계산기" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0b1020" />
 
   <link rel="canonical" href="https://handobin9782-lang.github.io/smart-calc/" />
+  <link rel="stylesheet" href="style.css" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -22,236 +23,16 @@
   <meta property="og:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="복리·적립식 자산 계산기 - 주식·ETF·코인·공제회·연금 적립 시뮬레이터" />
+  <meta property="og:image:alt" content="생활·금융 계산기 - 복리·대출·연봉·연차·실업급여 무료 계산기" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="복리·적립식 자산 계산기" />
   <meta name="twitter:description" content="적립식 복리 시뮬레이터 · 일반 계산기 · 연도별 성장 그래프" />
-  <meta name="twitter:image:alt" content="복리·적립식 자산 계산기 - 주식·ETF·코인·공제회·연금 적립 시뮬레이터" />
   <meta name="twitter:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta name="twitter:image:alt" content="생활·금융 계산기 - 복리·대출·연봉·연차·실업급여 무료 계산기" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1020'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%2338d399'%3E%F0%9F%A7%AE%3C/text%3E%3C/svg%3E" />
-
-  <style>
-    :root {
-      --bg: #0b1020;
-      --card: #131a2e;
-      --card2: #1a233d;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f3f6ff;
-      --muted: #93a1c6;
-      --accent: #38d399;
-      --accent2: #60a5fa;
-      --gold: #fbbf24;
-      --danger: #f87171;
-    }
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 16px 14px 36px;
-      line-height: 1.6;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; }
-    .header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 12px; flex-wrap: wrap; gap: 8px;
-    }
-    .title { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; margin: 0; }
-    .title small { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
-
-    .site-nav {
-      display: flex; gap: 4px; overflow-x: auto; margin-bottom: 14px;
-      scrollbar-width: none;
-    }
-    .site-nav::-webkit-scrollbar { display: none; }
-    .site-nav a {
-      flex: 0 0 auto; color: var(--muted); text-decoration: none; font-size: 13px;
-      font-weight: 600; padding: 8px 10px; border-radius: 9px; border: 1px solid transparent;
-    }
-    .site-nav a:hover { color: var(--text); border-color: var(--border); }
-
-    .tabs {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
-      background: var(--card); padding: 5px; border-radius: 14px;
-      border: 1px solid var(--border); margin-bottom: 14px;
-    }
-    .tab-btn {
-      border: 0; background: transparent; color: var(--muted);
-      font-size: 14px; font-weight: 700; padding: 10px 8px; border-radius: 10px;
-      cursor: pointer; transition: 0.15s;
-    }
-    .tab-btn.active {
-      background: var(--card2); color: var(--text);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .panel { display: none; }
-    .panel.active { display: block; }
-
-    .presets {
-      display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 10px;
-      scrollbar-width: none;
-    }
-    .presets::-webkit-scrollbar { display: none; }
-    .preset-btn {
-      flex: 0 0 auto; border: 1px solid var(--border);
-      background: var(--card); color: var(--text);
-      padding: 7px 11px; border-radius: 999px; font-size: 12px; font-weight: 600;
-      cursor: pointer;
-    }
-    .preset-btn:active { transform: scale(0.97); }
-
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 18px; padding: 16px; margin-bottom: 12px;
-    }
-    .input-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    }
-    .field label {
-      display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; font-weight: 600;
-    }
-    .input-box {
-      display: flex; align-items: center; background: var(--card2);
-      border: 1px solid var(--border); border-radius: 12px; padding: 0 10px;
-    }
-    .input-box input {
-      width: 100%; border: 0; background: transparent; color: var(--text);
-      font-size: 16px; font-weight: 700; padding: 10px 0; outline: none;
-      font-family: inherit;
-    }
-    .input-box input:focus { outline: none; }
-    .input-box:focus-within { border-color: rgba(56,211,153,0.5); }
-    .unit { font-size: 12px; color: var(--muted); font-weight: 600; margin-left: 4px; white-space: nowrap; }
-
-    .result-hero {
-      background: linear-gradient(135deg, #13283d, #131a2e);
-      border: 1px solid rgba(56, 211, 153, 0.25);
-    }
-    .hero-label { font-size: 12px; color: var(--accent); font-weight: 700; }
-    .hero-val { font-size: 28px; font-weight: 900; margin: 4px 0 10px; letter-spacing: -0.5px; }
-    .bar-wrap {
-      height: 10px; border-radius: 999px; background: #263252; overflow: hidden;
-      display: flex; margin-bottom: 12px;
-    }
-    .bar-principal { background: var(--accent2); height: 100%; transition: width 0.25s; }
-    .bar-profit { background: var(--accent); height: 100%; transition: width 0.25s; }
-    .stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-    }
-    .stat {
-      background: rgba(255,255,255,0.03); border-radius: 12px; padding: 10px;
-    }
-    .stat-k { font-size: 11px; color: var(--muted); }
-    .stat-v { font-size: 15px; font-weight: 800; margin-top: 2px; }
-    .stat-v.small { font-size: 13px; }
-    .green { color: var(--accent); }
-    .blue { color: var(--accent2); }
-    .gold { color: var(--gold); }
-
-    .chart {
-      display: flex; align-items: flex-end; gap: 4px; height: 120px;
-      padding-top: 12px; border-bottom: 1px solid var(--border);
-    }
-    .bar-col {
-      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;
-    }
-    .bar-stack {
-      width: 100%; max-width: 24px; border-radius: 5px 5px 0 0; overflow: hidden;
-      display: flex; flex-direction: column-reverse;
-    }
-    .bar-lbl { font-size: 10px; color: var(--muted); margin-top: 5px; }
-    .chart-legend {
-      display: flex; gap: 14px; margin-top: 8px; font-size: 11px; color: var(--muted);
-    }
-    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 3px; margin-right: 4px; }
-
-    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
-    th, td { text-align: right; padding: 7px 4px; border-bottom: 1px solid var(--border); }
-    th:first-child, td:first-child { text-align: left; }
-    th { color: var(--muted); font-weight: 600; }
-
-    /* Simple Calculator */
-    .calc-screen {
-      background: var(--card2); border-radius: 16px; padding: 16px; text-align: right;
-      margin-bottom: 12px; border: 1px solid var(--border);
-    }
-    .calc-expr { font-size: 13px; color: var(--muted); min-height: 18px; word-break: break-all; }
-    .calc-val { font-size: 32px; font-weight: 800; margin-top: 4px; word-break: break-all; }
-    .calc-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
-    }
-    .ckey {
-      border: 0; border-radius: 14px; padding: 16px 0; font-size: 19px; font-weight: 700;
-      background: var(--card2); color: var(--text); cursor: pointer; font-family: inherit;
-    }
-    .ckey:active { transform: scale(0.95); }
-    .ckey.op { background: #1e2d4f; color: var(--accent2); }
-    .ckey.eq { background: var(--accent); color: #052014; }
-    .ckey.fn { background: #23283d; color: var(--gold); }
-
-    /* Content sections */
-    .ad-slot {
-      display: none; text-align: center; margin: 18px 0;
-      min-height: 90px;
-    }
-    section.doc { margin-top: 26px; }
-    section.doc h2 {
-      font-size: 18px; font-weight: 800; margin: 30px 0 10px;
-      letter-spacing: -0.3px; padding-top: 4px;
-    }
-    section.doc h2:first-of-type { margin-top: 8px; }
-    section.doc h3 { font-size: 15px; font-weight: 700; margin: 18px 0 6px; color: var(--gold); }
-    section.doc p { font-size: 14px; color: #d5ddff; margin: 8px 0; }
-    section.doc ul, section.doc ol { font-size: 14px; color: #d5ddff; padding-left: 20px; margin: 8px 0; }
-    section.doc li { margin: 5px 0; }
-    section.doc strong { color: var(--text); }
-    .callout {
-      background: rgba(96,165,250,0.08); border-left: 3px solid var(--accent2);
-      border-radius: 0 12px 12px 0; padding: 12px 14px; font-size: 13.5px; color: #d5ddff;
-      margin: 14px 0;
-    }
-    .callout.warn { background: rgba(251,191,36,0.08); border-left-color: var(--gold); }
-    .doc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 10px 0; }
-    .doc-table th, .doc-table td { border-bottom: 1px solid var(--border); padding: 8px 6px; text-align: right; }
-    .doc-table th:first-child, .doc-table td:first-child { text-align: left; }
-    .doc-table th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.02); }
-
-    details.faq {
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-      padding: 12px 14px; margin-bottom: 8px;
-    }
-    details.faq summary {
-      font-size: 14px; font-weight: 700; cursor: pointer; list-style: none;
-      display: flex; justify-content: space-between; gap: 10px; align-items: flex-start;
-    }
-    details.faq summary::-webkit-details-marker { display: none; }
-    details.faq summary::after { content: "+"; color: var(--accent); font-size: 18px; line-height: 1; }
-    details.faq[open] summary::after { content: "−"; }
-    details.faq p { font-size: 13.5px; color: #c3cdf0; margin: 10px 0 2px; }
-
-    footer.site-footer {
-      margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border);
-      font-size: 12px; color: var(--muted);
-    }
-    footer.site-footer p { margin: 6px 0; line-height: 1.7; }
-    footer.site-footer a { color: var(--accent2); text-decoration: none; }
-    footer.site-footer a:hover { text-decoration: underline; }
-
-    @media (min-width: 640px) {
-      .title { font-size: 22px; }
-      .hero-val { font-size: 34px; }
-      section.doc p, section.doc ul, section.doc ol { font-size: 15px; }
-      .chart { height: 160px; }
-      .presets { flex-wrap: wrap; overflow-x: visible; }
-    }
-  </style>
 
   <script type="application/ld+json">
   {
@@ -348,6 +129,14 @@
   </div>
 
   <nav class="site-nav">
+    <a href="./" class="current">복리·적립</a>
+    <a href="loan.html">부동산·대출</a>
+    <a href="salary.html">연봉·세금</a>
+    <a href="leave.html">연차·퇴직금</a>
+    <a href="unemployment.html">실업급여</a>
+  </nav>
+
+  <nav class="section-nav">
     <a href="#calc">계산기</a>
     <a href="#how">사용법</a>
     <a href="#principle">복리 원리</a>
@@ -364,10 +153,10 @@
     <!-- Compound Panel -->
     <div id="panel-compound" class="panel active">
       <div class="presets">
-        <button class="preset-btn" onclick="applyPreset(500, 50, 10, 15)">📈 주식·ETF 적립 (월 50만 · 15년)</button>
-        <button class="preset-btn" onclick="applyPreset(0, 30, 5, 20)">🏦 공제회·연금 (월 30만 · 20년)</button>
-        <button class="preset-btn" onclick="applyPreset(100, 20, 20, 10)">🪙 코인 적립식 (월 20만 · 10년)</button>
-        <button class="preset-btn" onclick="applyPreset(10000, 0, 8, 10)">💰 목돈 배당 재투자 (1억 · 10년)</button>
+        <button class="preset-btn" onclick="applyPreset(500, 50, 10, 15, this)">📈 주식·ETF 적립 (월 50만 · 15년)</button>
+        <button class="preset-btn" onclick="applyPreset(0, 30, 5, 20, this)">🏦 공제회·연금 (월 30만 · 20년)</button>
+        <button class="preset-btn" onclick="applyPreset(100, 20, 20, 10, this)">🪙 코인 적립식 (월 20만 · 10년)</button>
+        <button class="preset-btn" onclick="applyPreset(10000, 0, 8, 10, this)">💰 목돈 배당 재투자 (1억 · 10년)</button>
       </div>
 
       <div class="card">
@@ -445,12 +234,14 @@
           <span><span class="dot" style="background:var(--accent2)"></span>납입 원금</span>
           <span><span class="dot" style="background:var(--accent)"></span>복리 수익</span>
         </div>
-        <table>
-          <thead>
-            <tr><th>시점</th><th>납입 원금</th><th>복리 수익</th><th>총 자산</th></tr>
-          </thead>
-          <tbody id="tbody"></tbody>
-        </table>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>시점</th><th>납입 원금</th><th>복리 수익</th><th>총 자산</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
       </div>
 
       <div class="ad-slot" id="ad-top"></div>
@@ -557,6 +348,16 @@
     </ul>
   </section>
 
+  <section class="doc">
+    <h2>이 사이트의 다른 계산기</h2>
+    <ul>
+      <li><a href="loan.html"><strong>부동산·주담대 계산기</strong></a> — 대출원금·금리·기간·상환방식으로 월 상환액과 총 이자, 연도별 상환 스케줄을 계산합니다.</li>
+      <li><a href="salary.html"><strong>연봉·세금 실수령액 계산기</strong></a> — 2026년 4대보험 요율과 소득세로 월 실수령액을 계산합니다.</li>
+      <li><a href="leave.html"><strong>연차·퇴직금 계산기</strong></a> — 입사일·퇴사일로 법정 연차 일수와 예상 퇴직금, 퇴직소득세를 계산합니다.</li>
+      <li><a href="unemployment.html"><strong>실업급여 계산기</strong></a> — 2026년 상한·하한액 기준 구직급여 일액과 소정급여일수, 총 수령액을 계산합니다.</li>
+    </ul>
+  </section>
+
   <div class="ad-slot" id="ad-bottom"></div>
 
   <section class="doc" id="faq">
@@ -606,8 +407,15 @@
   <footer class="site-footer">
     <p><strong>복리·적립식 자산 계산기</strong> — 무료로 제공되는 참고용 시뮬레이터입니다.</p>
     <p>이 사이트의 계산 결과는 입력한 가정에 따른 수치이며, 특정 상품의 수익을 보장하지 않습니다. 투자에는 원금 손실 위험이 있고, 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
-    <p><a href="privacy.html">개인정보처리방침 및 광고 고지</a></p>
-    <p>© 2026 복리·적립식 자산 계산기. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="./">복리·적립</a>
+      <a href="loan.html">부동산·대출</a>
+      <a href="salary.html">연봉·세금</a>
+      <a href="leave.html">연차·퇴직금</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="privacy.html">개인정보처리방침 및 광고 고지</a>
+    </div>
+    <p>© 2026 생활·금융 계산기. All rights reserved.</p>
   </footer>
 </div>
 
@@ -629,11 +437,13 @@ function fmtKRW(manwon) {
   return `${v.toLocaleString()}만 원`;
 }
 
-function applyPreset(init, monthly, rate, years) {
+function applyPreset(init, monthly, rate, years, btn) {
   document.getElementById('init').value = init;
   document.getElementById('monthly').value = monthly;
   document.getElementById('rate').value = rate;
   document.getElementById('years').value = years;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
   calcCompound();
 }
 
@@ -659,11 +469,8 @@ function calcCompound() {
   const last = rows[rows.length - 1];
   const pct = last.principal > 0 ? ((last.profit / last.principal) * 100) : 0;
   const pRatio = last.balance > 0 ? (last.principal / last.balance) * 100 : 100;
-
-  // 실질 가치: 물가상승률 연 2% 반영
   const realValue = last.balance / Math.pow(1.02, years);
 
-  // 복리 수익이 납입 원금을 처음 추월하는 시점 (복리가 본격적으로 앞서가는 지점)
   let crossText = '—';
   const crossRow = rows.find(r => r.principal > 0 && r.profit > r.principal);
   if (crossRow) {
@@ -683,7 +490,6 @@ function calcCompound() {
   document.getElementById('bar-p').style.width = `${pRatio.toFixed(1)}%`;
   document.getElementById('bar-r').style.width = `${(100 - pRatio).toFixed(1)}%`;
 
-  // Chart (sample up to 10 bars)
   const step = Math.max(1, Math.ceil(rows.length / 10));
   const sampled = rows.filter((_, i) => (i + 1) % step === 0 || i === rows.length - 1);
   const maxVal = Math.max(...sampled.map(r => r.balance), 1);
@@ -700,7 +506,6 @@ function calcCompound() {
     </div>`;
   }).join('');
 
-  // Table
   document.getElementById('tbody').innerHTML = sampled.map(r => `
     <tr>
       <td>${r.y}년차</td>
@@ -711,7 +516,7 @@ function calcCompound() {
   `).join('');
 }
 
-// URL 파라미터로 조건 공유 (예: ?init=1000&monthly=15&rate=12&years=10)
+// URL 파라미터로 조건 공유 (예: ?init=500&monthly=50&rate=10&years=15)
 (function readParams() {
   try {
     const q = new URLSearchParams(location.search);
@@ -725,7 +530,7 @@ function calcCompound() {
   } catch (e) {}
 })();
 
-// Basic Calc
+// 일반 계산기
 let expr = '';
 function cAdd(ch) {
   expr += ch;
