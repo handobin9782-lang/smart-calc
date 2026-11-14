@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 검색 로봇이 사이트맵을 찾을 수 있게 안내합니다.
+Sitemap: https://handobin9782-lang.github.io/smart-calc/sitemap.xml
