@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>출산·육아휴직 급여 계산기 | 2026 육아휴직 급여·6+6 (통상임금)</title>
+  <meta name="description" content="월 통상임금과 육아휴직 기간을 넣으면 2025~2026년 기준 육아휴직 급여(1~3개월 250만·4~6개월 200만·7개월 이후 160만 원 상한)를 월별로 계산합니다. 부모 함께 육아휴직제(6+6) 상한 250~450만 원과 출산전후휴가·배우자 출산휴가 급여까지 확인하세요." />
+  <meta name="keywords" content="육아휴직 급여 계산기, 출산휴가 급여, 육아휴직 급여 2026, 6+6 부모육아휴직제, 부모함께육아휴직제, 육아휴직 상한액, 출산전후휴가 급여, 배우자 출산휴가 급여" />
+  <meta name="author" content="생활·금융 계산기" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="canonical" href="https://handobin9782-lang.github.io/smart-calc/parental.html" />
+  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="생활·금융 계산기" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="출산·육아휴직 급여 계산기 | 월별 급여와 6+6" />
+  <meta property="og:description" content="통상임금 300만 원으로 12개월 육아휴직을 쓰면 총 얼마를 받을까? 월별 급여를 바로 계산합니다." />
+  <meta property="og:url" content="https://handobin9782-lang.github.io/smart-calc/parental.html" />
+  <meta property="og:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="생활·금융 계산기 - 육아휴직 급여 월별 계산" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="출산·육아휴직 급여 계산기" />
+  <meta name="twitter:description" content="2026년 기준 월별 육아휴직 급여와 6+6 부모육아휴직제 계산" />
+  <meta name="twitter:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta name="twitter:image:alt" content="생활·금융 계산기 - 육아휴직 급여 계산" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1020'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%2338d399'%3E%F0%9F%91%B6%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "출산·육아휴직 급여 계산기",
+    "url": "https://handobin9782-lang.github.io/smart-calc/parental.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko",
+    "description": "월 통상임금과 육아휴직 기간을 입력하면 2025~2026년 기준 월별 육아휴직 급여와 6+6 부모육아휴직제, 출산전후휴가·배우자 출산휴가 급여를 계산하는 무료 계산기입니다.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "2025년부터 육아휴직 급여는 어떻게 바뀌었나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "2025년 1월 1일 이후 시작한 육아휴직부터 1~3개월은 통상임금 100%(월 상한 250만 원), 4~6개월은 통상임금 100%(월 상한 200만 원), 7개월 이후는 통상임금 80%(월 상한 160만 원)로 올라갔습니다. 급여 일부를 복직 후에 주던 사후지급금 제도도 폐지되어 매월 전액 지급됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "6+6 부모육아휴직제는 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "자녀 생후 18개월 이내에 부모가 모두 육아휴직을 사용하면, 두 번째로 육아휴직을 시작한 부모의 첫 6개월 급여 상한이 250만·250만·300만·350만·400만·450만 원으로 올라갑니다. 부모가 동시에 쓰지 않고 순차적으로 써도 적용되며, 두 사람 모두 6개월을 채우지 않아도 공통 사용 기간만큼 적용됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "육아휴직 급여의 하한액이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네. 통상임금의 100%나 80%에 해당하는 금액이 월 70만 원보다 적으면 70만 원을 지급합니다. 상한액과 하한액이 함께 적용되므로, 통상임금이 낮은 경우에도 최소 70만 원은 받습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "육아휴직은 최대 얼마나 쓸 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "자녀 1명당 기본 1년이고, 부모가 각각 3개월 이상 육아휴직을 사용하거나 한부모·중증장애아동의 부모인 경우 1년 6개월까지 늘어납니다. 2025년 2월 23일부터 시행되었고, 육아휴직과 육아기 근로시간 단축을 합쳐 최대 2년까지 사용할 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "출산전후휴가 급여는 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "출산전후휴가 90일 동안 통상임금 100%를 받고, 2026년 고시 기준 90일 상한은 660만 원(30일 기준 220만 원)입니다. 미숙아는 100일 733만 원, 다태아는 120일 880만 원이 상한입니다. 우선지원대상기업은 전체 기간을, 대규모기업은 60일(다태아 75일)을 초과한 기간을 정부가 지원합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "배우자 출산휴가 급여도 받을 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "배우자 출산휴가는 20일이고, 우선지원대상기업 근로자는 2026년 기준 20일 상한 168만 4,210원의 급여를 받습니다. 배우자가 출산한 날부터 120일 안에 사용해야 하고, 3회까지 나누어 쓸 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "급여를 받으려면 어떤 요건이 필요한가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "육아휴직을 시작하는 날 기준으로 고용보험 피보험 단위기간이 180일 이상이어야 하고, 같은 자녀에 대해 육아휴직을 30일 이상 사용해야 합니다. 급여는 육아휴직 시작 후 1개월부터 종료 후 12개월 이내에 신청해야 하며, 기한을 넘기면 지급되지 않습니다."
+        }
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9910389156575302" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="title"><a href="./">🧮 생활·금융 계산기</a>
+      <small>금융·투자 · 부동산·주거 · 직장·생활 계산기</small>
+    </div>
+  </div>
+
+  <nav class="calc-menu-wrap" aria-label="계산기 전체 메뉴">
+    <details class="calc-menu">
+      <summary>☰ 전체 계산기 <span class="menu-here">· 출산·육아휴직</span></summary>
+      <div class="hub">
+        <div class="hub-cat">
+          <div class="hub-cat-title">① 금융·투자</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="./"><span class="hub-ico">📈</span><span class="hub-txt"><b>복리·적립식</b><small>적립·복리로 목표 자산 계산</small></span></a>
+            <a class="hub-card" href="dividend.html"><span class="hub-ico">💰</span><span class="hub-txt"><b>주식·ETF 월배당</b><small>세후 월 배당금 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">② 부동산·주거</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="loan.html"><span class="hub-ico">🏠</span><span class="hub-txt"><b>부동산·대출</b><small>주담대 월 상환액·총 이자</small></span></a>
+            <a class="hub-card" href="brokerage.html"><span class="hub-ico">🧾</span><span class="hub-txt"><b>부동산 복비</b><small>매매·전세·월세 중개보수</small></span></a>
+            <a class="hub-card" href="subscription.html"><span class="hub-ico">🎯</span><span class="hub-txt"><b>청약 가점</b><small>84점 만점 가점 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">③ 직장·생활</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="salary.html"><span class="hub-ico">💵</span><span class="hub-txt"><b>연봉 실수령</b><small>4대보험·세금 뺀 월급</small></span></a>
+            <a class="hub-card" href="leave.html"><span class="hub-ico">🗓️</span><span class="hub-txt"><b>연차·퇴직금</b><small>연차 일수·퇴직금</small></span></a>
+            <a class="hub-card" href="unemployment.html"><span class="hub-ico">🧳</span><span class="hub-txt"><b>실업급여</b><small>구직급여 총 수령액</small></span></a>
+            <a class="hub-card current" href="parental.html"><span class="hub-ico">👶</span><span class="hub-txt"><b>출산·육아휴직</b><small>육아휴직 급여·6+6</small></span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="section-nav">
+    <a href="#calc">육아휴직 급여</a>
+    <a href="#birth">출산휴가 급여</a>
+    <a href="#rules">지급 기준</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </nav>
+
+  <div id="calc">
+    <div class="card">
+      <div class="input-grid">
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="wage">월 통상임금 (세전)</label>
+          <div class="input-box">
+            <input id="wage" type="number" value="300" min="0" step="10" inputmode="numeric" oninput="calcParental()" />
+            <span class="unit">만원</span>
+          </div>
+          <div class="chips" id="wage-chips">
+            <button class="chip" onclick="setWage(200, this)">200만</button>
+            <button class="chip active" onclick="setWage(300, this)">300만</button>
+            <button class="chip" onclick="setWage(400, this)">400만</button>
+            <button class="chip" onclick="setWage(500, this)">500만</button>
+          </div>
+          <div class="field-note">육아휴직 <b>시작일 기준</b> 통상임금입니다. 기본급과 매월 고정수당을 포함하고, 성과급·연장근로수당처럼 변동하는 급여는 대개 제외됩니다.</div>
+        </div>
+
+        <div class="field">
+          <label for="months">육아휴직 기간</label>
+          <div class="input-box">
+            <input id="months" type="number" value="12" min="1" max="18" step="1" inputmode="numeric" oninput="calcParental()" />
+            <span class="unit">개월</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>적용 제도</label>
+          <label class="check-line" style="margin-top:0;padding:9px 10px;background:var(--card2);border:1px solid var(--border);border-radius:12px;">
+            <input id="sixsix" type="checkbox" onchange="calcParental()" />
+            <span>6+6 부모육아휴직제</span>
+          </label>
+        </div>
+      </div>
+      <div class="chips" id="months-chips">
+        <button class="chip" onclick="setMonths(6, this)">6개월</button>
+        <button class="chip" onclick="setMonths(12, this)">12개월·기본</button>
+        <button class="chip" onclick="setMonths(18, this)">18개월·확대</button>
+      </div>
+      <div class="field-note" id="sixsix-note">6+6은 자녀 생후 18개월 이내에 부모가 모두 육아휴직을 쓸 때, 두 번째 사용자의 첫 6개월 상한을 250만~450만 원으로 올려 줍니다.</div>
+    </div>
+
+    <div class="card result-hero">
+      <div class="hero-label">육아휴직 급여 합계 (세전)</div>
+      <div class="hero-val big" id="hero-total">-</div>
+      <div class="hero-sub" id="hero-sub">-</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-k">1~3개월 합계</div>
+          <div class="stat-v blue" id="res-q1">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">4~6개월 합계</div>
+          <div class="stat-v blue" id="res-q2">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">7개월 이후 합계</div>
+          <div class="stat-v green" id="res-q3">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">월 평균 수령액</div>
+          <div class="stat-v gold" id="res-avg">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">첫 달</div>
+          <div class="stat-v small" id="res-first">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">통상임금 대비 수령 비율</div>
+          <div class="stat-v small" id="res-ratio">-</div>
+        </div>
+      </div>
+      <div class="field-note" id="res-cap-note" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;margin-bottom:2px;">월별 육아휴직 급여</div>
+      <div class="field-note" id="chart-note" style="margin-bottom:6px;"></div>
+      <div class="chart" id="chart"></div>
+      <div class="chart-legend">
+        <span><span class="dot" style="background:var(--accent)"></span>월 지급액</span>
+        <span>막대 아래는 휴직 월차</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>월차</th><th>지급률</th><th>상한액</th><th>월 지급액</th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ad-slot" id="ad-top"></div>
+  </div>
+
+  <!-- ===== 출산휴가 ===== -->
+  <div id="birth">
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px;">출산전후휴가·배우자 출산휴가 급여</div>
+      <div class="input-grid">
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="birth-type">휴가 종류</label>
+          <div class="input-box">
+            <select id="birth-type" onchange="calcBirth()">
+              <option value="90">출산전후휴가 90일 (단태아)</option>
+              <option value="100">출산전후휴가 100일 (미숙아)</option>
+              <option value="120">출산전후휴가 120일 (다태아)</option>
+              <option value="spouse20">배우자 출산휴가 20일</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="result-hero card" style="margin-top:12px;margin-bottom:0;">
+        <div class="hero-label">예상 급여 (세전)</div>
+        <div class="hero-val big" id="birth-total">-</div>
+        <div class="hero-sub" id="birth-sub">-</div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-k">1일 통상임금</div>
+            <div class="stat-v small" id="birth-daily">-</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">적용 상한액</div>
+            <div class="stat-v small gold" id="birth-cap">-</div>
+          </div>
+        </div>
+      </div>
+      <div class="field-note">우선지원대상기업은 휴가 전체 기간을, 대규모기업은 출산전후휴가 중 60일(다태아 75일)을 초과한 기간만 정부 지원을 받고 나머지는 사업주가 지급합니다. 배우자 출산휴가 급여는 우선지원대상기업 근로자에게 지급됩니다.</div>
+    </div>
+  </div>
+
+  <section class="doc" id="rules">
+    <h2>2026년 육아휴직 급여 지급 기준</h2>
+    <p>2025년 1월 1일 이후 시작한 육아휴직에 적용되는 기준입니다. 급여는 육아휴직 시작일 기준 통상임금으로 계산하고, 상한액과 하한액(월 70만 원)을 함께 적용합니다.</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>기간</th><th>지급률</th><th>월 상한액</th><th>6+6 적용 시 상한</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1개월</td><td>통상임금 100%</td><td>250만 원</td><td>250만 원</td></tr>
+        <tr><td>2개월</td><td>통상임금 100%</td><td>250만 원</td><td>250만 원</td></tr>
+        <tr><td>3개월</td><td>통상임금 100%</td><td>250만 원</td><td>300만 원</td></tr>
+        <tr><td>4개월</td><td>통상임금 100%</td><td>200만 원</td><td>350만 원</td></tr>
+        <tr><td>5개월</td><td>통상임금 100%</td><td>200만 원</td><td>400만 원</td></tr>
+        <tr><td>6개월</td><td>통상임금 100%</td><td>200만 원</td><td>450만 원</td></tr>
+        <tr><td>7개월 이후</td><td>통상임금 80%</td><td>160만 원</td><td>160만 원</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6+6 부모육아휴직제</h3>
+    <p>자녀가 태어난 지 <strong>18개월</strong>이 지나기 전에 부모가 모두 육아휴직을 쓰면, 두 번째로 육아휴직을 시작한 사람의 첫 6개월 상한이 250만 → 300만 → 350만 → 400만 → 450만 원으로 올라갑니다. 부모가 동시에 쓰지 않고 순차적으로 써도 되고, 두 사람 모두 6개월을 채우지 않아도 <strong>공통으로 사용한 기간만큼</strong> 적용됩니다. 7개월부터는 일반 기준(통상임금 80%·상한 160만 원)으로 돌아갑니다.</p>
+    <p>급여는 부모가 각각 받습니다. 한 사람이 6개월, 다른 한 사람이 12개월을 쓴다면 두 사람의 급여를 따로 계산해 더하면 됩니다.</p>
+
+    <h3>기간과 요건</h3>
+    <ul>
+      <li><strong>기간</strong> — 자녀 1명당 기본 1년, 부모가 각각 3개월 이상 사용하거나 한부모·중증장애아동의 부모면 1년 6개월까지입니다(2025. 2. 23. 시행). 육아휴직과 육아기 근로시간 단축을 합쳐 최대 2년입니다.</li>
+      <li><strong>대상 자녀</strong> — 만 8세 이하 또는 초등학교 2학년 이하입니다. 육아휴직을 시작하는 날 기준으로 판단합니다.</li>
+      <li><strong>고용보험</strong> — 시작일 기준 피보험 단위기간이 180일 이상이어야 합니다.</li>
+      <li><strong>사용일수</strong> — 같은 자녀에 대해 30일 이상 사용해야 합니다(단기 육아휴직은 30일 미만도 가능).</li>
+      <li><strong>신청 기한</strong> — 육아휴직 시작 후 1개월부터 종료 후 12개월 이내입니다. 기한을 넘기면 급여를 받을 수 없습니다.</li>
+    </ul>
+
+    <h3>한부모·공무원의 경우</h3>
+    <p>한부모가족지원법상 한부모는 첫 3개월 상한이 300만 원으로 높아집니다. 공무원은 「공무원수당 등에 관한 규정」에 따라 1~6개월 통상임금(월봉급액) 100%, 7개월 이후 80%가 적용되고 상한액은 일반과 같습니다.</p>
+
+    <div class="callout warn">
+      이 계산기는 <strong>고용보험 육아휴직 급여</strong>만 계산합니다. 회사가 별도로 급여를 보전해 주는 경우 그 금액은 포함되지 않고, 세금과 4대보험료도 반영하지 않았습니다. 실제 지급액은 관할 고용센터의 결정과 통상임금 산정 결과에 따라 달라질 수 있습니다.
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>이 사이트의 다른 계산기</h2>
+        <ul>
+      <li><a href="./"><strong>복리·적립식 계산기</strong></a> — 적립식 투자와 목돈 운용의 복리 결과를 계산합니다.</li>
+      <li><a href="dividend.html"><strong>월배당 계산기</strong></a> — 투자금과 배당률, 계좌 세율로 세후 월 배당금과 필요 자산을 계산합니다.</li>
+      <li><a href="loan.html"><strong>부동산·주담대 계산기</strong></a> — 상환방식별 월 상환액과 총 이자를 비교합니다.</li>
+      <li><a href="brokerage.html"><strong>부동산 복비 계산기</strong></a> — 매매·전세·월세 법정 중개보수 상한과 부가세를 계산합니다.</li>
+      <li><a href="subscription.html"><strong>청약 가점 계산기</strong></a> — 무주택기간·부양가족·통장 기간으로 84점 만점 가점을 계산합니다.</li>
+      <li><a href="salary.html"><strong>연봉·세금 실수령액 계산기</strong></a> — 4대보험과 소득세를 뺀 월 실수령액을 계산합니다.</li>
+      <li><a href="leave.html"><strong>연차·퇴직금 계산기</strong></a> — 법정 연차 일수와 예상 퇴직금을 계산합니다.</li>
+      <li><a href="unemployment.html"><strong>실업급여 계산기</strong></a> — 구직급여 일액과 총 수령액을 계산합니다.</li>
+    </ul>
+  </section>
+
+  <div class="ad-slot" id="ad-bottom"></div>
+
+  <section class="doc" id="faq">
+    <h2>자주 묻는 질문</h2>
+
+    <details class="faq">
+      <summary>2025년부터 육아휴직 급여는 어떻게 바뀌었나요?</summary>
+      <p>2025년 1월 1일 이후 시작한 육아휴직부터 1~3개월은 통상임금 100%(월 상한 250만 원), 4~6개월은 통상임금 100%(월 상한 200만 원), 7개월 이후는 통상임금 80%(월 상한 160만 원)로 올라갔습니다. 급여 일부를 복직 후에 주던 사후지급금 제도도 폐지되어 매월 전액 지급됩니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>6+6 부모육아휴직제는 무엇인가요?</summary>
+      <p>자녀 생후 18개월 이내에 부모가 모두 육아휴직을 사용하면, 두 번째로 육아휴직을 시작한 부모의 첫 6개월 급여 상한이 250만·250만·300만·350만·400만·450만 원으로 올라갑니다. 부모가 동시에 쓰지 않고 순차적으로 써도 적용되며, 두 사람 모두 6개월을 채우지 않아도 공통 사용 기간만큼 적용됩니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>육아휴직 급여의 하한액이 있나요?</summary>
+      <p>네. 통상임금의 100%나 80%에 해당하는 금액이 월 70만 원보다 적으면 70만 원을 지급합니다. 상한액과 하한액이 함께 적용되므로, 통상임금이 낮은 경우에도 최소 70만 원은 받습니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>육아휴직은 최대 얼마나 쓸 수 있나요?</summary>
+      <p>자녀 1명당 기본 1년이고, 부모가 각각 3개월 이상 육아휴직을 사용하거나 한부모·중증장애아동의 부모인 경우 1년 6개월까지 늘어납니다. 2025년 2월 23일부터 시행되었고, 육아휴직과 육아기 근로시간 단축을 합쳐 최대 2년까지 사용할 수 있습니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>출산전후휴가 급여는 얼마인가요?</summary>
+      <p>출산전후휴가 90일 동안 통상임금 100%를 받고, 2026년 고시 기준 90일 상한은 660만 원(30일 기준 220만 원)입니다. 미숙아는 100일 733만 원, 다태아는 120일 880만 원이 상한입니다. 우선지원대상기업은 전체 기간을, 대규모기업은 60일(다태아 75일)을 초과한 기간을 정부가 지원합니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>배우자 출산휴가 급여도 받을 수 있나요?</summary>
+      <p>배우자 출산휴가는 20일이고, 우선지원대상기업 근로자는 2026년 기준 20일 상한 168만 4,210원의 급여를 받습니다. 배우자가 출산한 날부터 120일 안에 사용해야 하고, 3회까지 나누어 쓸 수 있습니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>급여를 받으려면 어떤 요건이 필요한가요?</summary>
+      <p>육아휴직을 시작하는 날 기준으로 고용보험 피보험 단위기간이 180일 이상이어야 하고, 같은 자녀에 대해 육아휴직을 30일 이상 사용해야 합니다. 급여는 육아휴직 시작 후 1개월부터 종료 후 12개월 이내에 신청해야 하며, 기한을 넘기면 지급되지 않습니다.</p>
+    </details>
+  </section>
+
+  <footer class="site-footer">
+    <p><strong>출산·육아휴직 급여 계산기</strong> — 무료로 제공되는 참고용 계산기입니다.</p>
+    <p>2025년 1월 1일 이후 시작한 육아휴직 기준이며, 출산전후휴가·배우자 출산휴가 급여는 2026년 고용노동부 고시 상한액을 적용했습니다. 실제 지급액은 통상임금 산정과 고용센터 결정에 따라 달라질 수 있습니다.</p>
+    <div class="footer-links">
+      <a href="./">복리·적립</a>
+      <a href="dividend.html">월배당</a>
+      <a href="loan.html">부동산·대출</a>
+      <a href="brokerage.html">부동산 복비</a>
+      <a href="subscription.html">청약 가점</a>
+      <a href="salary.html">연봉·세금</a>
+      <a href="leave.html">연차·퇴직금</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="parental.html">출산·육아휴직</a>
+      <a href="privacy.html">개인정보처리방침 및 광고 고지</a>
+    </div>
+    <p>© 2026 생활·금융 계산기. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+function num(id) {
+  const el = document.getElementById(id);
+  if (!el) return 0;
+  const v = parseFloat(el.value);
+  return isNaN(v) ? 0 : v;
+}
+
+function fmtWon(won) {
+  const w = Math.round(won);
+  if (w <= 0) return '0원';
+  const eok = Math.floor(w / 1e8);
+  const man = Math.floor((w % 1e8) / 1e4);
+  const rest = w % 1e4;
+  if (eok > 0) return man > 0 ? `${eok.toLocaleString()}억 ${man.toLocaleString()}만 원` : `${eok.toLocaleString()}억 원`;
+  if (man > 0) return rest > 0 ? `${man.toLocaleString()}만 ${rest.toLocaleString()}원` : `${man.toLocaleString()}만 원`;
+  return `${rest.toLocaleString()}원`;
+}
+
+function setWage(v, btn) {
+  document.getElementById('wage').value = v;
+  document.querySelectorAll('#wage-chips .chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  calcParental();
+}
+
+function setMonths(v, btn) {
+  document.getElementById('months').value = v;
+  document.querySelectorAll('#months-chips .chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  calcParental();
+}
+
+// 6+6 첫 6개월 상한 (만원)
+const SIX_SIX_CAPS = [250, 250, 300, 350, 400, 450];
+
+function capFor(month, sixsix) {
+  if (sixsix && month <= 6) return SIX_SIX_CAPS[month - 1] * 1e4;
+  if (month <= 3) return 2500000;
+  if (month <= 6) return 2000000;
+  return 1600000;
+}
+
+function rateFor(month, sixsix) {
+  if (month <= 6) return 1;
+  return 0.8;
+}
+
+function calcParental() {
+  const wage = Math.max(0, num('wage')) * 1e4;
+  const months = Math.min(18, Math.max(1, Math.round(num('months')) || 1));
+  const sixsix = document.getElementById('sixsix').checked;
+
+  const rows = [];
+  for (let m = 1; m <= months; m++) {
+    const rate = rateFor(m, sixsix);
+    const cap = capFor(m, sixsix);
+    const raw = wage * rate;
+    const paid = Math.max(700000, Math.min(raw, cap));
+    rows.push({ m, rate, cap, paid, capped: raw > cap, floored: raw < 700000 });
+  }
+
+  const total = rows.reduce((s, r) => s + r.paid, 0);
+  const q1 = rows.filter(r => r.m <= 3).reduce((s, r) => s + r.paid, 0);
+  const q2 = rows.filter(r => r.m >= 4 && r.m <= 6).reduce((s, r) => s + r.paid, 0);
+  const q3 = rows.filter(r => r.m >= 7).reduce((s, r) => s + r.paid, 0);
+
+  document.getElementById('hero-total').textContent = fmtWon(total);
+  document.getElementById('hero-sub').textContent =
+    `통상임금 ${fmtWon(wage)} · ${months}개월${sixsix ? ' · 6+6 적용' : ''} · 월평균 ${fmtWon(total / months)}`;
+  document.getElementById('res-q1').textContent = fmtWon(q1);
+  document.getElementById('res-q2').textContent = q2 > 0 ? fmtWon(q2) : '-';
+  document.getElementById('res-q3').textContent = q3 > 0 ? fmtWon(q3) : '-';
+  document.getElementById('res-avg').textContent = fmtWon(total / months);
+  document.getElementById('res-first').textContent = fmtWon(rows[0].paid);
+  document.getElementById('res-ratio').textContent =
+    wage > 0 ? `${Math.round((total / (wage * months)) * 100)}%` : '-';
+
+  const cappedRows = rows.filter(r => r.capped);
+  document.getElementById('res-cap-note').innerHTML = cappedRows.length
+    ? `상한액이 적용된 달이 <b>${cappedRows.length}개월</b>입니다. 통상임금이 상한보다 높아 ${fmtWon(rows.reduce((s, r) => s + Math.max(0, wage * r.rate - r.cap), 0))}이(가) 상한에 걸렸습니다.`
+    : '모든 달이 통상임금의 100%·80% 그대로 지급됩니다(상한 미적용).';
+
+  document.getElementById('chart-note').textContent =
+    `첫 달 ${fmtWon(rows[0].paid)}부터 ${months}개월째 ${fmtWon(rows[rows.length - 1].paid)}까지`;
+
+  const maxPaid = Math.max(...rows.map(r => r.paid), 1);
+  document.getElementById('chart').innerHTML = rows.map(r => {
+    const h = Math.max(6, Math.round((r.paid / maxPaid) * 95));
+    return `<div class="bar-col">
+      <div class="bar-stack" style="height:${h}px;background:var(--accent)"></div>
+      <div class="bar-lbl">${r.m}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('tbody').innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.m}개월</td>
+      <td>${r.rate === 1 ? '100%' : '80%'}</td>
+      <td>${fmtWon(r.cap)}</td>
+      <td style="font-weight:700">${fmtWon(r.paid)}${r.capped ? ' <span class="field-note">(상한)</span>' : ''}${r.floored ? ' <span class="field-note">(하한)</span>' : ''}</td>
+    </tr>
+  `).join('');
+
+  calcBirth();
+}
+
+function calcBirth() {
+  const wage = Math.max(0, num('wage')) * 1e4;
+  const type = document.getElementById('birth-type').value;
+  const dailyWage = wage / 30;
+
+  let days, dailyCap, label;
+  if (type === 'spouse20') {
+    days = 20;
+    dailyCap = 1684210 / 20;
+    label = '배우자 출산휴가 20일';
+  } else {
+    days = Number(type);
+    dailyCap = 6600000 / 90;
+    label = days === 100 ? '출산전후휴가 100일(미숙아)' : days === 120 ? '출산전후휴가 120일(다태아)' : '출산전후휴가 90일';
+  }
+
+  const daily = Math.min(dailyWage, dailyCap);
+  const total = Math.round(daily * days);
+
+  document.getElementById('birth-total').textContent = fmtWon(total);
+  document.getElementById('birth-sub').textContent =
+    `${label} · 통상임금 ${fmtWon(wage)} · 상한 ${fmtWon(dailyCap * days)}`;
+  document.getElementById('birth-daily').textContent = fmtWon(dailyWage);
+  document.getElementById('birth-cap').textContent = fmtWon(dailyCap * days);
+}
+
+// URL 파라미터 (예: parental.html?wage=300&months=12&sixsix=1)
+(function readParams() {
+  try {
+    const q = new URLSearchParams(location.search);
+    ['wage', 'months'].forEach(k => {
+      if (q.has(k)) {
+        const v = parseFloat(q.get(k));
+        if (!isNaN(v)) document.getElementById(k).value = v;
+      }
+    });
+    if (q.get('sixsix') === '1') document.getElementById('sixsix').checked = true;
+  } catch (e) {}
+})();
+
+calcParental();
+</script>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>부동산 복비 계산기 | 매매·전세·월세 중개보수 상한요율 (2026)</title>
+  <meta name="description" content="주택 매매·전세·월세 거래금액을 넣으면 공인중개사법 시행규칙 별표 1의 법정 중개보수 상한요율과 한도액으로 복비(중개보수)를 계산합니다. 월세 환산보증금, 협의 요율, 부가세 10% 별도 여부까지 한 번에 확인하세요." />
+  <meta name="keywords" content="복비 계산기, 중개보수 계산기, 부동산 중개수수료, 매매 복비, 전세 복비, 월세 복비, 중개보수 상한요율, 부동산 수수료 계산" />
+  <meta name="author" content="생활·금융 계산기" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="canonical" href="https://handobin9782-lang.github.io/smart-calc/brokerage.html" />
+  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="생활·금융 계산기" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="부동산 복비 계산기 | 매매·전세·월세 중개보수" />
+  <meta property="og:description" content="3억 원 아파트를 사면 복비는 얼마일까? 법정 상한요율과 한도액, 월세 환산보증금까지 반영해 계산합니다." />
+  <meta property="og:url" content="https://handobin9782-lang.github.io/smart-calc/brokerage.html" />
+  <meta property="og:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="생활·금융 계산기 - 부동산 매매·전세·월세 복비 계산" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="부동산 복비 계산기" />
+  <meta name="twitter:description" content="매매·전세·월세 법정 중개보수 상한요율과 한도액 계산" />
+  <meta name="twitter:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta name="twitter:image:alt" content="생활·금융 계산기 - 부동산 복비 계산" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1020'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%2338d399'%3E%F0%9F%A7%BE%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "부동산 복비 계산기",
+    "url": "https://handobin9782-lang.github.io/smart-calc/brokerage.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko",
+    "description": "주택 매매·전세·월세 거래금액과 협의 요율을 입력하면 공인중개사법 시행규칙 별표 1의 법정 중개보수 상한요율과 한도액으로 중개보수와 부가세를 계산하는 무료 계산기입니다.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "복비는 매수인과 매도인이 각각 내나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "중개보수는 거래 당사자 쌍방에게서 각각 받습니다. 매매라면 매도인과 매수인이 각자 계산된 금액을 부담하고, 임대차라면 임대인과 임차인이 각자 부담합니다. 이 계산기의 결과는 한 사람이 내는 금액이며, 중개사가 양쪽에서 받는 총액은 두 배입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "월세 계약의 거래금액은 어떻게 계산하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "보증금에 월세의 100배를 더합니다. 보증금 3,000만 원에 월세 50만 원이면 3,000만 + 5,000만 = 8,000만 원이 거래금액입니다. 다만 이렇게 계산한 금액이 5,000만 원 미만이면 월세의 70배로 다시 계산합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "상한요율을 그대로 내야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "아닙니다. 요율표의 숫자는 받을 수 있는 최대치이고, 실제 중개보수는 상한 이내에서 의뢰인과 개업공인중개사가 협의해 정합니다. 협의한 요율을 계산기의 협의 요율 칸에 넣으면 그 금액으로 계산됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "한도액은 무슨 뜻인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "거래금액이 작은 구간에 두는 절대 상한입니다. 요율을 곱한 금액이 한도액을 넘으면 한도액까지만 받을 수 있습니다. 주택 매매 5,000만 원 미만은 25만 원, 5,000만 원 이상 2억 원 미만은 80만 원, 임대차 5,000만 원 미만은 20만 원, 5,000만 원 이상 1억 원 미만은 30만 원입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "부가세는 따로 내야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "중개보수에는 부가가치세가 별도인 경우가 많습니다. 개업공인중개사가 일반과세자면 10%가 붙고, 간이과세자이거나 면세사업자면 붙지 않거나 세율이 다릅니다. 계약 전에 중개사의 과세 유형을 확인하고 영수증을 받아 두세요."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "지역에 따라 요율이 다른가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "주택 중개보수의 요율과 한도액은 시·도 조례로 정합니다. 이 계산기는 전국 공통 기준인 공인중개사법 시행규칙 별표 1을 적용하며, 중개대상물과 중개사무소 소재지가 다르면 중개사무소 소재지 관할 시·도 조례를 따릅니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "오피스텔이나 상가도 계산할 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "이 계산기는 주택 기준입니다. 전용면적 85㎡ 이하이면서 입식 부엌·수세식 화장실·목욕시설을 갖춘 오피스텔은 매매 0.5%, 임대차 0.4%의 단일 요율이 적용되고, 그 밖의 오피스텔과 상가·토지는 거래금액의 0.9% 이내에서 협의해 정합니다."
+        }
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9910389156575302" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="title"><a href="./">🧮 생활·금융 계산기</a>
+      <small>금융·투자 · 부동산·주거 · 직장·생활 계산기</small>
+    </div>
+  </div>
+
+  <nav class="calc-menu-wrap" aria-label="계산기 전체 메뉴">
+    <details class="calc-menu">
+      <summary>☰ 전체 계산기 <span class="menu-here">· 부동산 복비</span></summary>
+      <div class="hub">
+        <div class="hub-cat">
+          <div class="hub-cat-title">① 금융·투자</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="./"><span class="hub-ico">📈</span><span class="hub-txt"><b>복리·적립식</b><small>적립·복리로 목표 자산 계산</small></span></a>
+            <a class="hub-card" href="dividend.html"><span class="hub-ico">💰</span><span class="hub-txt"><b>주식·ETF 월배당</b><small>세후 월 배당금 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">② 부동산·주거</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="loan.html"><span class="hub-ico">🏠</span><span class="hub-txt"><b>부동산·대출</b><small>주담대 월 상환액·총 이자</small></span></a>
+            <a class="hub-card current" href="brokerage.html"><span class="hub-ico">🧾</span><span class="hub-txt"><b>부동산 복비</b><small>매매·전세·월세 중개보수</small></span></a>
+            <a class="hub-card" href="subscription.html"><span class="hub-ico">🎯</span><span class="hub-txt"><b>청약 가점</b><small>84점 만점 가점 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">③ 직장·생활</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="salary.html"><span class="hub-ico">💵</span><span class="hub-txt"><b>연봉 실수령</b><small>4대보험·세금 뺀 월급</small></span></a>
+            <a class="hub-card" href="leave.html"><span class="hub-ico">🗓️</span><span class="hub-txt"><b>연차·퇴직금</b><small>연차 일수·퇴직금</small></span></a>
+            <a class="hub-card" href="unemployment.html"><span class="hub-ico">🧳</span><span class="hub-txt"><b>실업급여</b><small>구직급여 총 수령액</small></span></a>
+            <a class="hub-card" href="parental.html"><span class="hub-ico">👶</span><span class="hub-txt"><b>출산·육아휴직</b><small>육아휴직 급여·6+6</small></span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="section-nav">
+    <a href="#calc">계산기</a>
+    <a href="#rates">상한요율표</a>
+    <a href="#how">계산 방식</a>
+    <a href="#examples">예시</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </nav>
+
+  <div id="calc">
+    <div class="card">
+      <div class="segmented" id="type-seg">
+        <button class="seg-btn active" data-type="sale" onclick="setType(this)">
+          <span class="seg-main">매매</span><span class="seg-sub">매매·교환</span>
+        </button>
+        <button class="seg-btn" data-type="jeonse" onclick="setType(this)">
+          <span class="seg-main">전세</span><span class="seg-sub">보증금만</span>
+        </button>
+        <button class="seg-btn" data-type="wolse" onclick="setType(this)">
+          <span class="seg-main">월세</span><span class="seg-sub">보증금+월세</span>
+        </button>
+      </div>
+
+      <div class="input-grid">
+        <div class="field">
+          <label for="price" id="price-label">매매가격</label>
+          <div class="input-box">
+            <input id="price" type="number" value="30000" min="0" step="100" inputmode="numeric" oninput="calcBrokerage()" />
+            <span class="unit">만원</span>
+          </div>
+        </div>
+        <div class="field" id="monthly-field" style="display:none;">
+          <label for="monthly">월세</label>
+          <div class="input-box">
+            <input id="monthly" type="number" value="50" min="0" step="5" inputmode="numeric" oninput="calcBrokerage()" />
+            <span class="unit">만원</span>
+          </div>
+        </div>
+      </div>
+      <div class="field-note" id="deal-note">= 3억 원</div>
+
+      <div class="chips" id="price-chips">
+        <button class="chip" onclick="setPrice(5000, this)">5,000만</button>
+        <button class="chip" onclick="setPrice(10000, this)">1억</button>
+        <button class="chip" onclick="setPrice(30000, this)">3억</button>
+        <button class="chip" onclick="setPrice(50000, this)">5억</button>
+        <button class="chip" onclick="setPrice(90000, this)">9억</button>
+        <button class="chip" onclick="setPrice(120000, this)">12억</button>
+      </div>
+
+      <div class="field-note" style="margin:16px 0 6px;font-weight:700;">적용 요율</div>
+      <div class="segmented" id="rate-seg" style="grid-template-columns:1fr 1fr;">
+        <button class="seg-btn active" data-mode="limit" onclick="setRateMode(this)">
+          <span class="seg-main">법정 상한요율</span><span class="seg-sub">최대 금액</span>
+        </button>
+        <button class="seg-btn" data-mode="custom" onclick="setRateMode(this)">
+          <span class="seg-main">협의 요율</span><span class="seg-sub">직접 입력</span>
+        </button>
+      </div>
+      <div class="input-grid" id="custom-rate-field" style="display:none;">
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="custom-rate">중개사와 협의한 요율</label>
+          <div class="input-box">
+            <input id="custom-rate" type="number" value="0.4" min="0" max="10" step="0.05" inputmode="decimal" oninput="calcBrokerage()" />
+            <span class="unit">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-note" style="margin:16px 0 6px;font-weight:700;">부가세</div>
+      <div class="segmented" id="vat-seg" style="grid-template-columns:1fr 1fr;">
+        <button class="seg-btn active" data-vat="1" onclick="setVat(this)">
+          <span class="seg-main">부가세 별도</span><span class="seg-sub">일반과세자 10%</span>
+        </button>
+        <button class="seg-btn" data-vat="0" onclick="setVat(this)">
+          <span class="seg-main">부가세 포함·면세</span><span class="seg-sub">간이·면세사업자</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="card result-hero">
+      <div class="hero-label">중개보수 (부가세 포함)</div>
+      <div class="hero-val big" id="hero-total">-</div>
+      <div class="hero-sub" id="hero-sub">-</div>
+      <div class="bar-wrap">
+        <div class="bar-principal" id="bar-fee" style="width:90%"></div>
+        <div class="bar-profit" id="bar-vat" style="width:10%"></div>
+      </div>
+      <div class="chart-legend" style="margin-top:-4px;margin-bottom:12px;">
+        <span><span class="dot" style="background:var(--accent2)"></span>중개보수</span>
+        <span><span class="dot" style="background:var(--accent)"></span>부가세</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-k">중개보수 (공급가액)</div>
+          <div class="stat-v blue" id="res-fee">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">부가세</div>
+          <div class="stat-v green" id="res-vat">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">적용 요율</div>
+          <div class="stat-v gold" id="res-rate">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">법정 상한액</div>
+          <div class="stat-v" id="res-limit">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">거래금액</div>
+          <div class="stat-v small" id="res-deal">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">중개사가 양쪽에서 받는 총액</div>
+          <div class="stat-v small" id="res-both">-</div>
+        </div>
+      </div>
+      <div class="field-note" id="res-warn" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="ad-slot" id="ad-top"></div>
+  </div>
+
+  <!-- ===== 요율표 ===== -->
+  <section class="doc" id="rates">
+    <h2>주택 중개보수 법정 상한요율표</h2>
+    <p>「공인중개사법 시행규칙」 제20조제1항 및 별표 1(2021. 10. 19. 신설)이 정한 주택 중개보수의 상한입니다. 실제 금액은 상한 이내에서 협의해 정합니다.</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>거래금액</th><th>매매·교환</th><th>임대차 등</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>5,000만 원 미만</td><td>0.6% (한도 25만 원)</td><td>0.5% (한도 20만 원)</td></tr>
+        <tr><td>5,000만 ~ 1억 원 미만</td><td>0.5% (한도 80만 원)</td><td>0.4% (한도 30만 원)</td></tr>
+        <tr><td>1억 ~ 2억 원 미만</td><td>0.5% (한도 80만 원)</td><td>0.3%</td></tr>
+        <tr><td>2억 ~ 6억 원 미만</td><td>0.4%</td><td>0.3%</td></tr>
+        <tr><td>6억 ~ 9억 원 미만</td><td>0.4%</td><td>0.4%</td></tr>
+        <tr><td>9억 ~ 12억 원 미만</td><td>0.5%</td><td>0.4%</td></tr>
+        <tr><td>12억 ~ 15억 원 미만</td><td>0.6%</td><td>0.5%</td></tr>
+        <tr><td>15억 원 이상</td><td>0.7%</td><td>0.6%</td></tr>
+      </tbody>
+    </table>
+    <p class="field-note" style="font-size:12px;">※ 매매는 5,000만 원 이상 2억 원 미만이 하나의 구간(0.5%·한도 80만 원)입니다. 요율·한도액은 시·도 조례로 정하며, 중개대상물과 중개사무소 소재지가 다르면 중개사무소 소재지 조례가 적용됩니다.</p>
+    <div class="callout warn">
+      위 표는 <strong>상한</strong>입니다. 요율을 곱한 금액이 구간 한도액을 넘으면 한도액까지만 받을 수 있고, 실제 지급액은 그보다 낮게 협의할 수 있습니다.
+    </div>
+  </section>
+
+  <section class="doc" id="how">
+    <h2>복비가 계산되는 방식</h2>
+    <h3>1. 거래금액을 먼저 정합니다</h3>
+    <ul>
+      <li><strong>매매</strong> — 매매가격이 그대로 거래금액입니다. 교환은 교환 대상 중 가격이 큰 물건의 가격을 씁니다.</li>
+      <li><strong>전세</strong> — 보증금이 거래금액입니다.</li>
+      <li><strong>월세</strong> — 보증금 + (월세 × 100)입니다. 보증금 3,000만 원, 월세 50만 원이면 3,000만 + 5,000만 = 8,000만 원입니다. 이렇게 계산한 금액이 <strong>5,000만 원 미만</strong>이면 월세의 70배로 다시 계산합니다(보증금 + 월세 × 70).</li>
+    </ul>
+    <h3>2. 구간별 요율을 적용합니다</h3>
+    <p>거래금액이 속한 구간의 상한요율을 곱합니다. 5,000만 원 미만과 매매 2억 원 미만, 임대차 1억 원 미만 구간에는 요율과 별도로 <strong>한도액</strong>이 있어, 계산 결과가 한도를 넘으면 한도액까지만 받을 수 있습니다.</p>
+    <h3>3. 부가세와 실비를 확인합니다</h3>
+    <p>중개보수에는 부가가치세가 별도인 경우가 많습니다. 일반과세자면 10%가 붙고, 간이과세자는 업종별 부가율에 따른 세율이, 면세사업자는 부가세가 없습니다. 이 밖에 권리관계 확인을 위한 증명·공부 열람 비용, 계약금 반환보증 비용 같은 <strong>실비</strong>는 중개보수와 별도로 청구될 수 있습니다.</p>
+    <p>그리고 중개보수는 <strong>거래 당사자 쌍방이 각각</strong> 부담합니다. 이 계산기의 결과는 한 사람이 내는 금액이고, 중개사가 양쪽에서 받는 총액은 그 두 배입니다.</p>
+  </section>
+
+  <section class="doc" id="examples">
+    <h2>자주 나오는 금액으로 미리 계산해 보기</h2>
+    <table class="doc-table">
+      <thead>
+        <tr><th>거래</th><th>거래금액</th><th>상한요율</th><th>중개보수 (부가세 별도)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>매매 3억 원</td><td>3억</td><td>0.4%</td><td>120만 원 (+부가세 12만 = 132만)</td></tr>
+        <tr><td>매매 9억 원</td><td>9억</td><td>0.5%</td><td>450만 원 (+부가세 45만 = 495만)</td></tr>
+        <tr><td>매매 12억 원</td><td>12억</td><td>0.6%</td><td>720만 원 (+부가세 72만 = 792만)</td></tr>
+        <tr><td>전세 3억 원</td><td>3억</td><td>0.3%</td><td>90만 원 (+부가세 9만 = 99만)</td></tr>
+        <tr><td>전세 7억 원</td><td>7억</td><td>0.4%</td><td>280만 원 (+부가세 28만 = 308만)</td></tr>
+        <tr><td>월세 보증금 3,000만·월세 50만</td><td>8,000만</td><td>0.3%</td><td>24만 원 (+부가세 2.4만 = 26.4만)</td></tr>
+      </tbody>
+    </table>
+    <p>6억 원짜리 집을 사면서 3억 원으로 신고하는 식의 이중계약은 세금과 형사 책임으로 돌아옵니다. 중개보수는 <strong>실제 거래금액</strong>을 기준으로 계산하고, 협의한 요율과 부가세·실비를 계약서나 영수증에서 확인해 두는 것이 안전합니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>이 사이트의 다른 계산기</h2>
+        <ul>
+      <li><a href="./"><strong>복리·적립식 계산기</strong></a> — 적립식 투자와 목돈 운용의 복리 결과를 계산합니다.</li>
+      <li><a href="dividend.html"><strong>월배당 계산기</strong></a> — 투자금과 배당률, 계좌 세율로 세후 월 배당금과 필요 자산을 계산합니다.</li>
+      <li><a href="loan.html"><strong>부동산·주담대 계산기</strong></a> — 상환방식별 월 상환액과 총 이자를 비교합니다.</li>
+      <li><a href="subscription.html"><strong>청약 가점 계산기</strong></a> — 무주택기간·부양가족·통장 기간으로 84점 만점 가점을 계산합니다.</li>
+      <li><a href="salary.html"><strong>연봉·세금 실수령액 계산기</strong></a> — 4대보험과 소득세를 뺀 월 실수령액을 계산합니다.</li>
+      <li><a href="leave.html"><strong>연차·퇴직금 계산기</strong></a> — 법정 연차 일수와 예상 퇴직금을 계산합니다.</li>
+      <li><a href="unemployment.html"><strong>실업급여 계산기</strong></a> — 구직급여 일액과 총 수령액을 계산합니다.</li>
+      <li><a href="parental.html"><strong>출산·육아휴직 급여 계산기</strong></a> — 통상임금으로 월별 육아휴직 급여와 6+6을 계산합니다.</li>
+    </ul>
+  </section>
+
+  <div class="ad-slot" id="ad-bottom"></div>
+
+  <section class="doc" id="faq">
+    <h2>자주 묻는 질문</h2>
+
+    <details class="faq">
+      <summary>복비는 매수인과 매도인이 각각 내나요?</summary>
+      <p>중개보수는 거래 당사자 쌍방에게서 각각 받습니다. 매매라면 매도인과 매수인이 각자 계산된 금액을 부담하고, 임대차라면 임대인과 임차인이 각자 부담합니다. 이 계산기의 결과는 한 사람이 내는 금액이며, 중개사가 양쪽에서 받는 총액은 두 배입니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>월세 계약의 거래금액은 어떻게 계산하나요?</summary>
+      <p>보증금에 월세의 100배를 더합니다. 보증금 3,000만 원에 월세 50만 원이면 3,000만 + 5,000만 = 8,000만 원이 거래금액입니다. 다만 이렇게 계산한 금액이 5,000만 원 미만이면 월세의 70배로 다시 계산합니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>상한요율을 그대로 내야 하나요?</summary>
+      <p>아닙니다. 요율표의 숫자는 받을 수 있는 최대치이고, 실제 중개보수는 상한 이내에서 의뢰인과 개업공인중개사가 협의해 정합니다. 협의한 요율을 계산기의 협의 요율 칸에 넣으면 그 금액으로 계산됩니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>한도액은 무슨 뜻인가요?</summary>
+      <p>거래금액이 작은 구간에 두는 절대 상한입니다. 요율을 곱한 금액이 한도액을 넘으면 한도액까지만 받을 수 있습니다. 주택 매매 5,000만 원 미만은 25만 원, 5,000만 원 이상 2억 원 미만은 80만 원, 임대차 5,000만 원 미만은 20만 원, 5,000만 원 이상 1억 원 미만은 30만 원입니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>부가세는 따로 내야 하나요?</summary>
+      <p>중개보수에는 부가가치세가 별도인 경우가 많습니다. 개업공인중개사가 일반과세자면 10%가 붙고, 간이과세자이거나 면세사업자면 붙지 않거나 세율이 다릅니다. 계약 전에 중개사의 과세 유형을 확인하고 영수증을 받아 두세요.</p>
+    </details>
+
+    <details class="faq">
+      <summary>지역에 따라 요율이 다른가요?</summary>
+      <p>주택 중개보수의 요율과 한도액은 시·도 조례로 정합니다. 이 계산기는 전국 공통 기준인 공인중개사법 시행규칙 별표 1을 적용하며, 중개대상물과 중개사무소 소재지가 다르면 중개사무소 소재지 관할 시·도 조례를 따릅니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>오피스텔이나 상가도 계산할 수 있나요?</summary>
+      <p>이 계산기는 주택 기준입니다. 전용면적 85㎡ 이하이면서 입식 부엌·수세식 화장실·목욕시설을 갖춘 오피스텔은 매매 0.5%, 임대차 0.4%의 단일 요율이 적용되고, 그 밖의 오피스텔과 상가·토지는 거래금액의 0.9% 이내에서 협의해 정합니다.</p>
+    </details>
+  </section>
+
+  <footer class="site-footer">
+    <p><strong>부동산 복비 계산기</strong> — 무료로 제공되는 참고용 계산기입니다.</p>
+    <p>법정 상한요율은 「공인중개사법 시행규칙」 별표 1을 따르며, 실제 중개보수는 상한 이내에서 협의로 정해집니다. 지역 조례와 중개사의 과세 유형에 따라 금액이 달라질 수 있습니다.</p>
+    <div class="footer-links">
+      <a href="./">복리·적립</a>
+      <a href="dividend.html">월배당</a>
+      <a href="loan.html">부동산·대출</a>
+      <a href="brokerage.html">부동산 복비</a>
+      <a href="subscription.html">청약 가점</a>
+      <a href="salary.html">연봉·세금</a>
+      <a href="leave.html">연차·퇴직금</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="parental.html">출산·육아휴직</a>
+      <a href="privacy.html">개인정보처리방침 및 광고 고지</a>
+    </div>
+    <p>© 2026 생활·금융 계산기. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+const SALE_BANDS = [
+  { max: 5000, rate: 0.006, cap: 250000 },
+  { max: 20000, rate: 0.005, cap: 800000 },
+  { max: 90000, rate: 0.004, cap: Infinity },
+  { max: 120000, rate: 0.005, cap: Infinity },
+  { max: 150000, rate: 0.006, cap: Infinity },
+  { max: Infinity, rate: 0.007, cap: Infinity }
+];
+const RENT_BANDS = [
+  { max: 5000, rate: 0.005, cap: 200000 },
+  { max: 10000, rate: 0.004, cap: 300000 },
+  { max: 60000, rate: 0.003, cap: Infinity },
+  { max: 120000, rate: 0.004, cap: Infinity },
+  { max: 150000, rate: 0.005, cap: Infinity },
+  { max: Infinity, rate: 0.006, cap: Infinity }
+];
+
+let dealType = 'sale';
+let rateMode = 'limit';
+let vatMode = 1;
+
+function num(id) {
+  const v = parseFloat(document.getElementById(id).value);
+  return isNaN(v) ? 0 : v;
+}
+
+function pct(rate) {
+  return `${(rate * 100).toFixed(2).replace(/\.?0+$/, '')}%`;
+}
+
+function fmtWon(won) {
+  const w = Math.round(won);
+  if (w <= 0) return '0원';
+  const eok = Math.floor(w / 1e8);
+  const man = Math.floor((w % 1e8) / 1e4);
+  const rest = w % 1e4;
+  if (eok > 0) return man > 0 ? `${eok.toLocaleString()}억 ${man.toLocaleString()}만 원` : `${eok.toLocaleString()}억 원`;
+  if (man > 0) return rest > 0 ? `${man.toLocaleString()}만 ${rest.toLocaleString()}원` : `${man.toLocaleString()}만 원`;
+  return `${rest.toLocaleString()}원`;
+}
+
+function setType(btn) {
+  dealType = btn.dataset.type;
+  document.querySelectorAll('#type-seg .seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('monthly-field').style.display = dealType === 'wolse' ? 'block' : 'none';
+  document.getElementById('price-label').textContent =
+    dealType === 'sale' ? '매매가격' : dealType === 'jeonse' ? '전세 보증금' : '보증금';
+  calcBrokerage();
+}
+
+function setRateMode(btn) {
+  rateMode = btn.dataset.mode;
+  document.querySelectorAll('#rate-seg .seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('custom-rate-field').style.display = rateMode === 'custom' ? 'grid' : 'none';
+  calcBrokerage();
+}
+
+function setVat(btn) {
+  vatMode = Number(btn.dataset.vat);
+  document.querySelectorAll('#vat-seg .seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  calcBrokerage();
+}
+
+function setPrice(v, btn) {
+  document.getElementById('price').value = v;
+  document.querySelectorAll('#price-chips .chip').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  calcBrokerage();
+}
+
+function calcBrokerage() {
+  const price = Math.max(0, num('price'));      // 만원
+  const monthly = Math.max(0, num('monthly'));  // 만원
+
+  // 거래금액 산정 (만원)
+  let deal = price;
+  let dealText = fmtWon(price * 1e4);
+  if (dealType === 'wolse') {
+    deal = price + monthly * 100;
+    if (deal < 5000) deal = price + monthly * 70;
+    dealText = `${fmtWon(price * 1e4)} + 월세 ${monthly.toLocaleString()}만 × ${deal < 5000 ? 70 : 100} = ${fmtWon(deal * 1e4)}`;
+  }
+  document.getElementById('deal-note').innerHTML =
+    dealType === 'sale' ? `= <b>${fmtWon(deal * 1e4)}</b>` : `환산 거래금액 = <b>${fmtWon(deal * 1e4)}</b>`;
+  document.getElementById('res-deal').textContent = dealText;
+
+  if (deal <= 0) {
+    ['hero-total', 'hero-sub', 'res-fee', 'res-vat', 'res-rate', 'res-limit', 'res-both'].forEach(id => {
+      document.getElementById(id).textContent = '-';
+    });
+    document.getElementById('res-warn').textContent = '';
+    return;
+  }
+
+  const bands = dealType === 'sale' ? SALE_BANDS : RENT_BANDS;
+  const band = bands.find(b => deal < b.max) || bands[bands.length - 1];
+  const limitFee = Math.min(deal * 1e4 * band.rate, band.cap);
+  let applyRate = band.rate;
+
+  if (rateMode === 'custom') {
+    const custom = Math.min(100, Math.max(0, num('custom-rate'))) / 100;
+    applyRate = custom;
+  }
+  let fee = deal * 1e4 * applyRate;
+  if (applyRate <= band.rate) fee = Math.min(fee, band.cap);
+  fee = Math.round(fee);
+
+  const vat = vatMode ? Math.round(fee * 0.1) : 0;
+  const total = fee + vat;
+
+  document.getElementById('hero-total').textContent = fmtWon(total);
+  document.getElementById('hero-sub').textContent =
+    `${dealType === 'sale' ? '매매' : dealType === 'jeonse' ? '전세' : '월세'} · 거래금액 ${fmtWon(deal * 1e4)} · 요율 ${pct(applyRate)}${vatMode ? ' · 부가세 10% 별도' : ''}`;
+  document.getElementById('res-fee').textContent = fmtWon(fee);
+  document.getElementById('res-vat').textContent = vatMode ? fmtWon(vat) : '면제·포함';
+  document.getElementById('res-rate').textContent = pct(applyRate);
+  document.getElementById('res-limit').textContent = fmtWon(limitFee) + (band.cap !== Infinity ? ' (한도 적용)' : '');
+  document.getElementById('res-both').textContent = fmtWon(total * 2);
+
+  const feeShare = total > 0 ? (fee / total) * 100 : 100;
+  document.getElementById('bar-fee').style.width = `${feeShare.toFixed(1)}%`;
+  document.getElementById('bar-vat').style.width = `${(100 - feeShare).toFixed(1)}%`;
+
+  const warn = document.getElementById('res-warn');
+  if (applyRate > band.rate) {
+    warn.innerHTML = `<span class="red">입력한 요율이 법정 상한(${pct(band.rate)})을 넘습니다. 이 금액은 법정 상한을 초과할 수 있습니다.</span>`;
+  } else if (rateMode === 'limit') {
+    warn.textContent = '법정 상한요율로 계산한 최대 금액입니다. 실제로는 상한 이내에서 협의해 낮출 수 있습니다.';
+  } else {
+    warn.textContent = `상한 ${fmtWon(limitFee)} 대비 ${fmtWon(Math.max(0, limitFee - fee))} 절약한 금액입니다.`;
+  }
+}
+
+// URL 파라미터 (예: brokerage.html?type=sale&price=30000&rate=0.4&vat=1)
+(function readParams() {
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.has('price')) {
+      const v = parseFloat(q.get('price'));
+      if (!isNaN(v)) document.getElementById('price').value = v;
+    }
+    if (q.has('monthly')) {
+      const v = parseFloat(q.get('monthly'));
+      if (!isNaN(v)) document.getElementById('monthly').value = v;
+    }
+    const t = q.get('type');
+    if (t) {
+      const btn = document.querySelector(`#type-seg .seg-btn[data-type="${t}"]`);
+      if (btn) setType(btn);
+    }
+    if (q.has('rate')) {
+      const r = parseFloat(q.get('rate'));
+      const btn = document.querySelector('#rate-seg .seg-btn[data-mode="custom"]');
+      if (!isNaN(r) && btn) {
+        document.getElementById('custom-rate').value = r;
+        setRateMode(btn);
+      }
+    }
+  } catch (e) {}
+})();
+
+calcBrokerage();
+</script>
+</body>
+</html>

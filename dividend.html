@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>월배당 계산기 | 주식·ETF 배당금 세후 월 수령액 계산 (2026)</title>
+  <meta name="description" content="투자 금액과 연 배당률(SCHD 3.5%·리얼티인컴 5.5%·커버드콜 10%), 계좌 종류(일반 계좌 15.4%·ISA·연금저축·연금 수령 5.5%)를 넣으면 매달 받는 세후 월 배당금과 세후 연 배당금, 예상 세금을 바로 계산합니다. 배당 성장률과 목표 월 배당 역산까지 무료로 제공." />
+  <meta name="keywords" content="월배당 계산기, 배당금 계산기, 배당소득세 계산, 세후 배당금, SCHD 배당, 리얼티인컴 배당, 커버드콜 분배금, ISA 배당, 연금저축 배당, ETF 월배당" />
+  <meta name="author" content="생활·금융 계산기" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="canonical" href="https://handobin9782-lang.github.io/smart-calc/dividend.html" />
+  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="생활·금융 계산기" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="월배당 계산기 | 배당금 세후 월 수령액 계산" />
+  <meta property="og:description" content="1억 원을 SCHD(연 3.5%)에 넣으면 매달 세후 얼마가 들어올까? 배당률과 계좌만 넣으면 월 배당금과 세금이 바로 나옵니다." />
+  <meta property="og:url" content="https://handobin9782-lang.github.io/smart-calc/dividend.html" />
+  <meta property="og:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="생활·금융 계산기 - 주식·ETF 월배당 세후 수령액 계산" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="월배당 계산기" />
+  <meta name="twitter:description" content="SCHD 3.5% · 리얼티인컴 5.5% · 커버드콜 10% 프리셋으로 세후 월 배당금 계산" />
+  <meta name="twitter:image" content="https://handobin9782-lang.github.io/smart-calc/og.png" />
+  <meta name="twitter:image:alt" content="생활·금융 계산기 - 주식·ETF 월배당 세후 수령액 계산" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1020'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%2338d399'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "월배당 계산기",
+    "url": "https://handobin9782-lang.github.io/smart-calc/dividend.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko",
+    "description": "투자 금액과 연 배당률, 계좌 종류(일반 계좌·ISA·연금저축·연금 수령)를 입력하면 세후 월 배당금과 세후 연 배당금, 예상 세금, 배당 성장에 따른 미래 배당금을 계산하는 무료 주식·ETF 월배당 계산기입니다.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "배당소득세 15.4%는 어떻게 나온 비율인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "배당소득에 붙는 소득세 14%에 그 10%에 해당하는 지방소득세 1.4%를 더한 비율입니다. 금융회사가 배당을 지급할 때 미리 떼고 주므로 따로 신고하지 않아도 되지만, 이자와 배당을 합친 금융소득이 연 2,000만 원을 넘으면 다른 소득과 합산해 종합과세됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ISA에서 배당은 정말 세금이 없나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISA는 계좌 안에서 발생한 이자·배당 소득을 일반형 200만 원, 서민형 400만 원까지 비과세합니다. 그 금액을 넘는 소득은 9.9%로 분리과세되고 다른 소득과 합산되지 않습니다. 다만 의무 가입 기간 3년을 채우지 않고 중도 해지하면 감면받은 세금을 다시 내야 합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "연금저축·IRP는 왜 세율이 0%로 나오나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "연금저축과 IRP는 과세이연 계좌라서 운용하는 동안 발생한 배당과 이자에 세금을 매기지 않고, 연금으로 받을 때 연금소득세로 과세합니다. 연금 수령 시 세율은 70세 미만 5.5%, 70~80세 4.4%, 80세 이상 3.3%이며, 연금이 아닌 중도 해지로 찾으면 16.5%가 적용됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "SCHD 배당률 3.5%는 계속 유지되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "배당률은 연간 배당금을 현재 주가로 나눈 값이라 주가가 오르면 낮아지고 내리면 높아집니다. 운용사가 배당을 늘리면 배당률이 올라갑니다. SCHD는 배당을 꾸준히 늘려 온 상품이지만 배당 성장률이 매년 같지는 않으므로, 이 계산기는 입력한 배당률과 성장률이 유지된다고 가정한 참고값입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "커버드콜 ETF의 10% 분배율은 그대로 받는 건가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "커버드콜 ETF는 옵션 매도 프리미엄을 분배금으로 지급해 분배율이 높게 보이지만, 주가 상승분이 제한되고 분배금 일부가 원금을 되돌려 주는 성격을 띨 수 있습니다. 분배율이 높다는 이유만으로 총수익이 높다고 볼 수 없으므로 주가 변동까지 함께 확인해야 합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "해외 ETF 배당은 미국에서 15%를 떼고 오는데 왜 15.4%인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "미국은 조세조약에 따라 배당금을 지급할 때 15%를 원천징수합니다. 국내에서는 배당소득세 15.4%를 신고하면서 미국에서 낸 세금을 외국납부세액으로 공제받기 때문에 두 나라에서 이중으로 과세되지는 않고, 최종 부담은 15.4% 수준이 됩니다. 금융사별 처리 방식은 다를 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "월배당 ETF는 매달 같은 금액이 들어오나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "아닙니다. 분배금은 운용 성과와 환율, 배당락일에 따라 매달 달라지고, 분기 배당 상품은 3개월에 한 번 지급됩니다. 이 계산기는 한 해 평균 배당률을 12로 나눈 값이라 월별 실제 입금액과 차이가 날 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "계산기에 원금 손실은 반영되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "반영하지 않습니다. 배당은 주가와 별개로 지급되지만 주가가 하락하면 투자 원금이 줄어듭니다. 배당수익률이 10%라도 주가가 그만큼 빠지면 총수익은 0이 될 수 있으므로, 배당률과 함께 총수익률과 원금 변동을 확인해야 합니다."
+        }
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9910389156575302" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="title"><a href="./">🧮 생활·금융 계산기</a>
+      <small>복리·적립 · 월배당 · 부동산·대출 · 연봉·세금 · 연차·퇴직금 · 실업급여</small>
+    </div>
+  </div>
+
+  <nav class="calc-menu-wrap" aria-label="계산기 전체 메뉴">
+    <details class="calc-menu">
+      <summary>☰ 전체 계산기 <span class="menu-here">· 주식·ETF 월배당</span></summary>
+      <div class="hub">
+        <div class="hub-cat">
+          <div class="hub-cat-title">① 금융·투자</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="./"><span class="hub-ico">📈</span><span class="hub-txt"><b>복리·적립식</b><small>적립·복리로 목표 자산 계산</small></span></a>
+            <a class="hub-card current" href="dividend.html"><span class="hub-ico">💰</span><span class="hub-txt"><b>주식·ETF 월배당</b><small>세후 월 배당금 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">② 부동산·주거</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="loan.html"><span class="hub-ico">🏠</span><span class="hub-txt"><b>부동산·대출</b><small>주담대 월 상환액·총 이자</small></span></a>
+            <a class="hub-card" href="brokerage.html"><span class="hub-ico">🧾</span><span class="hub-txt"><b>부동산 복비</b><small>매매·전세·월세 중개보수</small></span></a>
+            <a class="hub-card" href="subscription.html"><span class="hub-ico">🎯</span><span class="hub-txt"><b>청약 가점</b><small>84점 만점 가점 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">③ 직장·생활</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="salary.html"><span class="hub-ico">💵</span><span class="hub-txt"><b>연봉 실수령</b><small>4대보험·세금 뺀 월급</small></span></a>
+            <a class="hub-card" href="leave.html"><span class="hub-ico">🗓️</span><span class="hub-txt"><b>연차·퇴직금</b><small>연차 일수·퇴직금</small></span></a>
+            <a class="hub-card" href="unemployment.html"><span class="hub-ico">🧳</span><span class="hub-txt"><b>실업급여</b><small>구직급여 총 수령액</small></span></a>
+            <a class="hub-card" href="parental.html"><span class="hub-ico">👶</span><span class="hub-txt"><b>출산·육아휴직</b><small>육아휴직 급여·6+6</small></span></a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="section-nav">
+    <a href="#calc">계산기</a>
+    <a href="#tax">배당 세금</a>
+    <a href="#how">사용법</a>
+    <a href="#examples">계산 예시</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </nav>
+
+  <div id="calc">
+    <div class="card">
+      <div class="input-grid">
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="amount">투자 금액</label>
+          <div class="input-box">
+            <input id="amount" type="number" value="10000" min="0" step="100" inputmode="numeric" oninput="calcDividend()" />
+            <span class="unit">만원</span>
+          </div>
+          <div class="chips" id="amount-chips">
+            <button class="chip" onclick="setAmount(1000, this)">1,000만</button>
+            <button class="chip" onclick="setAmount(5000, this)">5,000만</button>
+            <button class="chip active" onclick="setAmount(10000, this)">1억</button>
+            <button class="chip" onclick="setAmount(30000, this)">3억</button>
+            <button class="chip" onclick="setAmount(50000, this)">5억</button>
+          </div>
+          <div class="field-note" id="amount-note">= 1억 원</div>
+        </div>
+
+        <div class="field">
+          <label for="yield">연 배당률</label>
+          <div class="input-box">
+            <input id="yield" type="number" value="3.5" min="0" max="30" step="0.1" inputmode="decimal" oninput="calcDividend()" />
+            <span class="unit">%</span>
+          </div>
+          <div class="chips" id="yield-chips">
+            <button class="chip active" onclick="setYield(3.5, this)">SCHD 3.5%</button>
+            <button class="chip" onclick="setYield(5.5, this)">리얼티인컴 5.5%</button>
+            <button class="chip" onclick="setYield(10, this)">커버드콜 10%</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="growth">배당 성장률 (선택)</label>
+          <div class="input-box">
+            <input id="growth" type="number" value="3" min="0" max="30" step="0.5" inputmode="decimal" oninput="calcDividend()" />
+            <span class="unit">%</span>
+          </div>
+          <div class="field-note">배당금이 매년 오르는 비율. SCHD는 연 7~10% 수준으로 알려져 있습니다.</div>
+        </div>
+      </div>
+
+      <div class="field-note" style="margin:16px 0 6px;font-weight:700;">계좌·세금</div>
+      <div class="segmented" id="tax-seg">
+        <button class="seg-btn active" data-tax="0.154" onclick="setTax(this)">
+          <span class="seg-main">일반 계좌</span><span class="seg-sub">배당소득세 15.4%</span>
+        </button>
+        <button class="seg-btn" data-tax="0" onclick="setTax(this)">
+          <span class="seg-main">ISA·연금저축</span><span class="seg-sub">비과세·과세이연 0%</span>
+        </button>
+        <button class="seg-btn" data-tax="0.055" onclick="setTax(this)">
+          <span class="seg-main">연금 수령</span><span class="seg-sub">연금소득세 5.5%</span>
+        </button>
+      </div>
+      <div class="field-note" id="tax-note">일반 계좌는 배당소득세 15.4%(소득세 14% + 지방소득세 1.4%)를 뗀 금액입니다. 금융소득이 연 2,000만 원을 넘으면 종합과세 대상입니다.</div>
+    </div>
+
+    <div class="card result-hero">
+      <div class="hero-label">매달 받는 돈 · 세후 월 배당금</div>
+      <div class="hero-val big" id="hero-monthly">-</div>
+      <div class="hero-sub" id="hero-sub">-</div>
+      <div class="bar-wrap">
+        <div class="bar-principal" id="bar-net" style="width:84.6%"></div>
+        <div class="bar-profit" id="bar-tax" style="width:15.4%"></div>
+      </div>
+      <div class="chart-legend" style="margin-top:-4px;margin-bottom:12px;">
+        <span><span class="dot" style="background:var(--accent2)"></span>세후 수령액</span>
+        <span><span class="dot" style="background:var(--accent)"></span>세금</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-k">세후 연 배당금</div>
+          <div class="stat-v green" id="res-net-year">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">세전 연 배당금</div>
+          <div class="stat-v blue" id="res-gross-year">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">예상 세금 (연)</div>
+          <div class="stat-v red" id="res-tax">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">세전 월 배당금</div>
+          <div class="stat-v" id="res-gross-monthly">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">하루로 나누면 (세후)</div>
+          <div class="stat-v small" id="res-daily">-</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">월 예상 세금</div>
+          <div class="stat-v small" id="res-tax-monthly">-</div>
+        </div>
+      </div>
+      <a class="link-btn" href="index.html">📈 이 배당을 다시 투자하면? 복리 계산기로 이어 보기 <span class="arrow">→</span></a>
+    </div>
+
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;margin-bottom:2px;">배당 성장 시뮬레이션</div>
+      <div class="field-note" id="growth-summary" style="margin-bottom:6px;">배당 성장률에 따라 세후 월 배당금이 어떻게 늘어나는지 보여줍니다.</div>
+      <div class="chart" id="chart"></div>
+      <div class="chart-legend">
+        <span><span class="dot" style="background:var(--accent)"></span>세후 월 배당</span>
+        <span>막대 위 숫자는 연차</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>연차</th><th>세전 연 배당</th><th>세후 연 배당</th><th>세후 월 배당</th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px;">역산 — 목표 월 배당으로 필요 투자금</div>
+      <div class="input-grid">
+        <div class="field">
+          <label for="goal">목표 세후 월 배당</label>
+          <div class="input-box">
+            <input id="goal" type="number" value="50" min="1" step="10" inputmode="numeric" oninput="calcDividend()" />
+            <span class="unit">만원</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>필요 투자금</label>
+          <div class="reverse-out" id="reverse-out">-</div>
+        </div>
+      </div>
+      <div class="field-note" id="reverse-note">위에서 고른 배당률과 계좌 기준입니다.</div>
+    </div>
+
+    <div class="ad-slot" id="ad-top"></div>
+  </div>
+
+  <!-- ===== 사용법 ===== -->
+  <section class="doc" id="how">
+    <h2>월배당 계산기 사용법</h2>
+    <p>값을 바꿀 때마다 결과가 즉시 다시 계산됩니다. 세 개만 넣으면 끝입니다.</p>
+    <ol>
+      <li><strong>투자 금액</strong> — 배당주·ETF에 넣을 금액을 만 원 단위로 넣습니다. 아래 <strong>1,000만 / 1억 / 3억</strong> 버튼을 누르면 한 번에 채워집니다.</li>
+      <li><strong>연 배당률</strong> — 그 상품의 연간 배당금을 주가로 나눈 비율입니다. <strong>SCHD(약 3.5%)</strong>, <strong>리얼티인컴·고배당(5.5%)</strong>, <strong>커버드콜(10%)</strong> 프리셋을 눌러 비교해 보세요.</li>
+      <li><strong>계좌·세금</strong> — 같은 배당이라도 어느 계좌에 담았는지에 따라 받는 금액이 달라집니다. 일반 계좌 15.4%, ISA·연금저축 0%, 연금 수령 5.5% 중 하나를 고릅니다.</li>
+    </ol>
+    <h3>결과 값 읽는 법</h3>
+    <ul>
+      <li><strong>매달 받는 돈(세후 월 배당금)</strong> — 세금을 뺀 뒤 실제로 손에 들어오는 월 금액입니다. 이 계산기의 핵심 숫자입니다.</li>
+      <li><strong>세후 연 배당금</strong> — 1년 동안 받는 세후 배당의 합계입니다.</li>
+      <li><strong>세전 연 배당금</strong> — 세금을 떼기 전, 투자금 × 배당률로 계산한 금액입니다.</li>
+      <li><strong>예상 세금</strong> — 배당률과 계좌 세율로 계산한 1년치 세금입니다. 일반 계좌라면 대개 배당 지급 시점에 이미 원천징수된 금액입니다.</li>
+      <li><strong>하루로 나누면</strong> — 세후 연 배당금을 365로 나눈 값입니다. 하루에 얼마씩 쌓이는지 감을 잡는 참고값입니다.</li>
+    </ul>
+    <div class="callout">
+      <strong>배당 성장률</strong>은 배당금 자체가 매년 오르는 비율입니다. 0%로 두면 지금 배당이 그대로 유지된다고 보고, SCHD처럼 배당을 늘려 온 상품은 7~10% 사이로 넣어 미래 금액을 가늠해 볼 수 있습니다. 아래 <strong>역산</strong>은 반대로 "월 50만 원을 받으려면 얼마가 필요할까"를 계산합니다.
+    </div>
+  </section>
+
+  <!-- ===== 세금 ===== -->
+  <section class="doc" id="tax">
+    <h2>배당에 붙는 세금은 계좌마다 다릅니다</h2>
+    <p>배당금은 이자와 함께 <strong>금융소득</strong>으로 분류됩니다. 같은 1억 원, 같은 배당률이라도 어느 계좌에 담았는지에 따라 세후 금액이 달라지는 이유가 여기에 있습니다.</p>
+
+    <table class="doc-table">
+      <thead>
+        <tr><th>계좌</th><th>세율</th><th>특징</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>일반 계좌</td><td>15.4%</td><td>배당마다 원천징수 · 연 2,000만 원 초과 시 종합과세</td></tr>
+        <tr><td>ISA</td><td>0% (한도 내)</td><td>일반형 200만·서민형 400만 원 비과세, 초과분 9.9% 분리과세</td></tr>
+        <tr><td>연금저축·IRP</td><td>0% (운용 중)</td><td>과세이연 · 연금 수령 시 5.5%·4.4%·3.3%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>일반 계좌 — 배당소득세 15.4%</h3>
+    <p>배당소득세는 소득세 14%에 지방소득세 1.4%(소득세의 10%)를 더한 15.4%입니다. 배당을 지급하는 금융회사가 미리 떼고 주므로 따로 신고할 필요는 없습니다. 다만 이자와 배당을 합친 금융소득이 <strong>연 2,000만 원을 넘으면</strong> 그 초과분이 근로소득 등 다른 소득과 합산되어 최고 49.5%까지 세율이 올라가는 종합과세 대상이 됩니다. 이 계산기는 원천징수 세율만 반영합니다.</p>
+
+    <h3>ISA — 한도까지 비과세, 넘으면 9.9%</h3>
+    <p>ISA는 계좌 안에서 발생한 이자·배당을 일반형 200만 원, 서민형 400만 원까지 비과세합니다. 그 한도를 넘는 소득은 9.9%로 분리과세되어 다른 소득과 합산되지 않습니다. 배당이 큰 해에는 한도를 먼저 확인해야 하고, 의무 가입 기간 3년을 채우지 않고 중도 해지하면 받은 세제 혜택을 다시 내야 합니다.</p>
+
+    <h3>연금저축·IRP — 운용 중 0%, 받을 때 5.5%</h3>
+    <p>연금 계좌는 배당이 나도 세금을 매기지 않고 과세를 뒤로 미룹니다(과세이연). 그래서 운용하는 동안에는 0%로 계산하고, 연금으로 받을 때 연금소득세를 냅니다. 세율은 70세 미만 5.5%, 70~80세 4.4%, 80세 이상 3.3%로 나이가 들수록 낮아집니다. 연금이 아닌 중도 해지로 찾으면 16.5%가 적용되므로, 이 계산기의 '연금 수령' 결과는 만 55세 이후 연금 형태로 받는 경우를 가정한 값입니다.</p>
+
+    <h3>해외 ETF 배당과 환율</h3>
+    <p>미국 배당주는 조세조약에 따라 미국에서 15%를 먼저 원천징수합니다. 국내에서 배당소득세 15.4%를 신고하면 미국에서 낸 세금을 외국납부세액으로 공제받을 수 있어 이중 과세는 되지 않고, 최종 부담은 15.4% 수준이 됩니다. 다만 배당금을 달러로 받아 원화로 바꾸는 과정에서 환율이 움직이므로, 원화로 받는 금액은 계산 결과와 달라질 수 있습니다.</p>
+    <div class="callout warn">
+      이 계산기는 <strong>배당률과 세율이 매년 그대로 유지된다는 가정</strong> 위에서 돌아갑니다. 실제 배당은 운용 성과와 환율, 배당 정책에 따라 달라지고, 주가가 하락하면 배당을 받아도 원금이 줄어듭니다. 분배율이 높은 상품일수록 분배금 일부가 원금을 되돌려 주는 경우가 있으니 배당률만 보고 판단하지 마세요.
+    </div>
+  </section>
+
+  <!-- ===== 예시 ===== -->
+  <section class="doc" id="examples">
+    <h2>얼마를 넣으면 매달 얼마가 들어올까</h2>
+    <p>아래 표는 일반 계좌(배당소득세 15.4%) 기준으로 세후 월 배당금을 계산한 값입니다.</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>투자금 · 배당률</th><th>세전 연 배당</th><th>세후 연 배당</th><th>세후 월 배당</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1억 · SCHD 3.5%</td><td>350만</td><td>296만</td><td>월 24만 6,750원</td></tr>
+        <tr><td>3억 · SCHD 3.5%</td><td>1,050만</td><td>888만</td><td>월 74만 250원</td></tr>
+        <tr><td>5억 · SCHD 3.5%</td><td>1,750만</td><td>1,480만</td><td>월 123만 3,750원</td></tr>
+        <tr><td>1억 · 리얼티인컴 5.5%</td><td>550만</td><td>465만</td><td>월 38만 7,750원</td></tr>
+        <tr><td>1억 · 커버드콜 10%</td><td>1,000만</td><td>846만</td><td>월 70만 5,000원</td></tr>
+        <tr><td>3억 · 커버드콜 10%</td><td>3,000만</td><td>2,538만</td><td>월 211만 5,000원</td></tr>
+      </tbody>
+    </table>
+    <p class="field-note" style="font-size:12px;">※ 3억·커버드콜 10%처럼 금융소득이 연 2,000만 원을 넘으면 초과분이 종합과세되어 실제 세금은 이보다 커질 수 있습니다.</p>
+
+    <h3>같은 1억 원, 계좌만 바꾸면</h3>
+    <table class="doc-table">
+      <thead>
+        <tr><th>계좌 (1억 · SCHD 3.5%)</th><th>세금</th><th>세후 월 배당</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>일반 계좌 15.4%</td><td>연 53만 9,000원</td><td>월 24만 6,750원</td></tr>
+        <tr><td>ISA·연금저축 0%</td><td>0원</td><td>월 29만 1,667원</td></tr>
+        <tr><td>연금 수령 5.5%</td><td>연 19만 2,500원</td><td>월 27만 5,625원</td></tr>
+      </tbody>
+    </table>
+    <p>1억 원, 배당률 3.5%라면 일반 계좌와 ISA의 월 배당 차이는 약 4만 5천 원입니다. 1년이면 54만 원, 10년이면 540만 원이 넘는 차이입니다. 반대로 연금 계좌는 당장은 세금이 없지만 만 55세까지 묶이기 때문에, <strong>목표 월 배당을 채우는 시점</strong>과 <strong>돈이 필요한 시점</strong>을 함께 보고 계좌를 고르는 것이 순서입니다.</p>
+
+    <h3>목표 월 배당에서 거꾸로 계산하기</h3>
+    <p>세후 월 100만 원을 SCHD(3.5%)로 만들려면 일반 계좌 기준 약 4억 500만 원이 필요합니다. 같은 금액을 ISA에서 받는다면 약 3억 4,286만 원이면 됩니다. 계산기 아래쪽 <strong>역산</strong> 칸에 목표 금액을 넣으면 배당률과 계좌에 따라 필요한 투자금이 바로 나옵니다.</p>
+  </section>
+
+  <section class="doc">
+    <h2>이 사이트의 다른 계산기</h2>
+        <ul>
+      <li><a href="./"><strong>복리·적립식 계산기</strong></a> — 적립식 투자와 목돈 운용의 복리 결과를 계산합니다.</li>
+      <li><a href="loan.html"><strong>부동산·주담대 계산기</strong></a> — 상환방식별 월 상환액과 총 이자를 비교합니다.</li>
+      <li><a href="brokerage.html"><strong>부동산 복비 계산기</strong></a> — 매매·전세·월세 법정 중개보수 상한과 부가세를 계산합니다.</li>
+      <li><a href="subscription.html"><strong>청약 가점 계산기</strong></a> — 무주택기간·부양가족·통장 기간으로 84점 만점 가점을 계산합니다.</li>
+      <li><a href="salary.html"><strong>연봉·세금 실수령액 계산기</strong></a> — 4대보험과 소득세를 뺀 월 실수령액을 계산합니다.</li>
+      <li><a href="leave.html"><strong>연차·퇴직금 계산기</strong></a> — 법정 연차 일수와 예상 퇴직금을 계산합니다.</li>
+      <li><a href="unemployment.html"><strong>실업급여 계산기</strong></a> — 구직급여 일액과 총 수령액을 계산합니다.</li>
+      <li><a href="parental.html"><strong>출산·육아휴직 급여 계산기</strong></a> — 통상임금으로 월별 육아휴직 급여와 6+6을 계산합니다.</li>
+    </ul>
+  </section>
+
+  <div class="ad-slot" id="ad-bottom"></div>
+
+  <section class="doc" id="faq">
+    <h2>자주 묻는 질문</h2>
+
+    <details class="faq">
+      <summary>배당소득세 15.4%는 어떻게 나온 비율인가요?</summary>
+      <p>배당소득에 붙는 소득세 14%에 그 10%에 해당하는 지방소득세 1.4%를 더한 비율입니다. 금융회사가 배당을 지급할 때 미리 떼고 주므로 따로 신고하지 않아도 되지만, 이자와 배당을 합친 금융소득이 연 2,000만 원을 넘으면 다른 소득과 합산해 종합과세됩니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>ISA에서 배당은 정말 세금이 없나요?</summary>
+      <p>ISA는 계좌 안에서 발생한 이자·배당 소득을 일반형 200만 원, 서민형 400만 원까지 비과세합니다. 그 금액을 넘는 소득은 9.9%로 분리과세되고 다른 소득과 합산되지 않습니다. 다만 의무 가입 기간 3년을 채우지 않고 중도 해지하면 감면받은 세금을 다시 내야 합니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>연금저축·IRP는 왜 세율이 0%로 나오나요?</summary>
+      <p>연금저축과 IRP는 과세이연 계좌라서 운용하는 동안 발생한 배당과 이자에 세금을 매기지 않고, 연금으로 받을 때 연금소득세로 과세합니다. 연금 수령 시 세율은 70세 미만 5.5%, 70~80세 4.4%, 80세 이상 3.3%이며, 연금이 아닌 중도 해지로 찾으면 16.5%가 적용됩니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>SCHD 배당률 3.5%는 계속 유지되나요?</summary>
+      <p>배당률은 연간 배당금을 현재 주가로 나눈 값이라 주가가 오르면 낮아지고 내리면 높아집니다. 운용사가 배당을 늘리면 배당률이 올라갑니다. SCHD는 배당을 꾸준히 늘려 온 상품이지만 배당 성장률이 매년 같지는 않으므로, 이 계산기는 입력한 배당률과 성장률이 유지된다고 가정한 참고값입니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>커버드콜 ETF의 10% 분배율은 그대로 받는 건가요?</summary>
+      <p>커버드콜 ETF는 옵션 매도 프리미엄을 분배금으로 지급해 분배율이 높게 보이지만, 주가 상승분이 제한되고 분배금 일부가 원금을 되돌려 주는 성격을 띨 수 있습니다. 분배율이 높다는 이유만으로 총수익이 높다고 볼 수 없으므로 주가 변동까지 함께 확인해야 합니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>해외 ETF 배당은 미국에서 15%를 떼고 오는데 왜 15.4%인가요?</summary>
+      <p>미국은 조세조약에 따라 배당금을 지급할 때 15%를 원천징수합니다. 국내에서는 배당소득세 15.4%를 신고하면서 미국에서 낸 세금을 외국납부세액으로 공제받기 때문에 두 나라에서 이중으로 과세되지는 않고, 최종 부담은 15.4% 수준이 됩니다. 금융사별 처리 방식은 다를 수 있습니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>월배당 ETF는 매달 같은 금액이 들어오나요?</summary>
+      <p>아닙니다. 분배금은 운용 성과와 환율, 배당락일에 따라 매달 달라지고, 분기 배당 상품은 3개월에 한 번 지급됩니다. 이 계산기는 한 해 평균 배당률을 12로 나눈 값이라 월별 실제 입금액과 차이가 날 수 있습니다.</p>
+    </details>
+
+    <details class="faq">
+      <summary>계산기에 원금 손실은 반영되나요?</summary>
+      <p>반영하지 않습니다. 배당은 주가와 별개로 지급되지만 주가가 하락하면 투자 원금이 줄어듭니다. 배당수익률이 10%라도 주가가 그만큼 빠지면 총수익은 0이 될 수 있으므로, 배당률과 함께 총수익률과 원금 변동을 확인해야 합니다.</p>
+    </details>
+  </section>
+
+  <footer class="site-footer">
+    <p><strong>월배당 계산기</strong> — 무료로 제공되는 참고용 시뮬레이터입니다.</p>
+    <p>이 사이트의 계산 결과는 입력한 가정에 따른 수치이며, 특정 상품의 수익을 보장하지 않습니다. 투자에는 원금 손실 위험이 있고, 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
+    <div class="footer-links">
+      <a href="./">복리·적립</a>
+      <a href="dividend.html">월배당</a>
+      <a href="loan.html">부동산·대출</a>
+      <a href="brokerage.html">부동산 복비</a>
+      <a href="subscription.html">청약 가점</a>
+      <a href="salary.html">연봉·세금</a>
+      <a href="leave.html">연차·퇴직금</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="parental.html">출산·육아휴직</a>
+      <a href="privacy.html">개인정보처리방침 및 광고 고지</a>
+    </div>
+    <p>© 2026 생활·금융 계산기. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+let taxRate = 0.154;
+
+const TAX_NOTES = {
+  '0.154': '일반 계좌는 배당소득세 15.4%(소득세 14% + 지방소득세 1.4%)를 뗀 금액입니다. 금융소득이 연 2,000만 원을 넘으면 종합과세 대상입니다.',
+  '0': 'ISA는 일반형 200만·서민형 400만 원까지 비과세(초과분 9.9% 분리과세), 연금저축·IRP는 수령할 때까지 과세이연입니다.',
+  '0.055': '연금 수령 시 연금소득세 5.5%(70세 미만)를 적용한 금액입니다. 70~80세 4.4%, 80세 이상 3.3%.'
+};
+
+function num(id) {
+  const v = parseFloat(document.getElementById(id).value);
+  return isNaN(v) ? 0 : v;
+}
+
+// 원 단위 금액을 '1억 2,345만 원' / '29만 1,667원' 형태로
+function fmtWon(won) {
+  const w = Math.round(won);
+  if (w <= 0) return '0원';
+  const eok = Math.floor(w / 1e8);
+  const man = Math.floor((w % 1e8) / 1e4);
+  const rest = w % 1e4;
+  if (eok > 0) return man > 0 ? `${eok.toLocaleString()}억 ${man.toLocaleString()}만 원` : `${eok.toLocaleString()}억 원`;
+  if (man > 0) return rest > 0 ? `${man.toLocaleString()}만 ${rest.toLocaleString()}원` : `${man.toLocaleString()}만 원`;
+  return `${rest.toLocaleString()}원`;
+}
+
+function clearChips(groupId) {
+  document.querySelectorAll('#' + groupId + ' .chip').forEach(b => b.classList.remove('active'));
+}
+
+function setAmount(v, btn) {
+  document.getElementById('amount').value = v;
+  clearChips('amount-chips');
+  if (btn) btn.classList.add('active');
+  calcDividend();
+}
+
+function setYield(v, btn) {
+  document.getElementById('yield').value = v;
+  clearChips('yield-chips');
+  if (btn) btn.classList.add('active');
+  calcDividend();
+}
+
+function setTax(btn) {
+  taxRate = parseFloat(btn.dataset.tax);
+  document.querySelectorAll('#tax-seg .seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tax-note').textContent = TAX_NOTES[String(taxRate)] || '';
+  calcDividend();
+}
+
+function calcDividend() {
+  const amountMan = Math.max(0, num('amount'));
+  const yieldPct = Math.min(100, Math.max(0, num('yield')));
+  const growthPct = Math.min(50, Math.max(0, num('growth')));
+  const goalMan = Math.max(0, num('goal'));
+
+  const principal = amountMan * 1e4;
+  const grossYear = principal * yieldPct / 100;
+  const tax = grossYear * taxRate;
+  const netYear = grossYear - tax;
+  const netMonth = netYear / 12;
+  const grossMonth = grossYear / 12;
+
+  document.getElementById('amount-note').innerHTML = `= <b>${fmtWon(principal)}</b>`;
+  document.getElementById('hero-monthly').textContent = fmtWon(netMonth);
+  document.getElementById('hero-sub').textContent =
+    `${fmtWon(principal)} · 연 배당률 ${yieldPct}% · 세율 ${(taxRate * 100).toFixed(1)}%`;
+
+  document.getElementById('res-net-year').textContent = fmtWon(netYear);
+  document.getElementById('res-gross-year').textContent = fmtWon(grossYear);
+  document.getElementById('res-tax').textContent = fmtWon(tax);
+  document.getElementById('res-gross-monthly').textContent = fmtWon(grossMonth);
+  document.getElementById('res-daily').textContent = fmtWon(netYear / 365);
+  document.getElementById('res-tax-monthly').textContent = fmtWon(tax / 12);
+
+  const netShare = grossYear > 0 ? (netYear / grossYear) * 100 : 100;
+  document.getElementById('bar-net').style.width = `${netShare.toFixed(1)}%`;
+  document.getElementById('bar-tax').style.width = `${(100 - netShare).toFixed(1)}%`;
+
+  // 배당 성장 시뮬레이션 (1·3·5·10·15·20·25·30년)
+  const years = [1, 3, 5, 10, 15, 20, 25, 30];
+  const rows = years.map(y => {
+    const g = grossYear * Math.pow(1 + growthPct / 100, y - 1);
+    const n = g * (1 - taxRate);
+    return { y, gross: g, net: n, month: n / 12 };
+  });
+
+  const maxMonth = Math.max(...rows.map(r => r.month), 1);
+  document.getElementById('chart').innerHTML = rows.map(r => {
+    const h = Math.max(6, Math.round((r.month / maxMonth) * 95));
+    return `<div class="bar-col">
+      <div class="bar-stack" style="height:${h}px;background:var(--accent)"></div>
+      <div class="bar-lbl">${r.y}년</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('tbody').innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.y}년차</td>
+      <td>${fmtWon(r.gross)}</td>
+      <td class="green">${fmtWon(r.net)}</td>
+      <td style="font-weight:700">월 ${fmtWon(r.month)}</td>
+    </tr>
+  `).join('');
+
+  const y10 = rows.find(r => r.y === 10);
+  document.getElementById('growth-summary').innerHTML = growthPct > 0
+    ? `배당 성장률 연 ${growthPct}% 기준, 10년 뒤 세후 월 배당은 <b>${fmtWon(y10.month)}</b>입니다.`
+    : `배당 성장률이 0%라 지금 배당이 그대로 유지된다고 본 계산입니다.`;
+
+  // 역산: 목표 세후 월 배당 → 필요 투자금
+  const rateAfterTax = taxRate < 1 ? yieldPct / 100 * (1 - taxRate) : 0;
+  const needPrincipal = rateAfterTax > 0 ? (goalMan * 1e4 * 12) / rateAfterTax : 0;
+  document.getElementById('reverse-out').textContent = rateAfterTax > 0 ? fmtWon(needPrincipal) : '배당률을 입력하세요';
+  document.getElementById('reverse-note').textContent =
+    `배당률 ${yieldPct}% · 세율 ${(taxRate * 100).toFixed(1)}% · 세후 연 ${fmtWon(goalMan * 1e4 * 12)} 수령 기준입니다.`;
+}
+
+// URL 파라미터로 조건 공유 (예: dividend.html?amount=10000&yield=3.5&tax=0.154&growth=3&goal=50)
+(function readParams() {
+  try {
+    const q = new URLSearchParams(location.search);
+    ['amount', 'yield', 'growth', 'goal'].forEach(k => {
+      if (q.has(k)) {
+        const v = parseFloat(q.get(k));
+        if (!isNaN(v)) document.getElementById(k).value = v;
+      }
+    });
+    if (q.has('tax')) {
+      const t = parseFloat(q.get('tax'));
+      const btn = document.querySelector(`#tax-seg .seg-btn[data-tax="${t}"]`);
+      if (btn) {
+        taxRate = t;
+        document.querySelectorAll('#tax-seg .seg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tax-note').textContent = TAX_NOTES[String(t)] || '';
+      }
+    }
+  } catch (e) {}
+})();
+
+calcDividend();
+</script>
+</body>
+</html>

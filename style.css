@@ -252,3 +252,116 @@ footer.site-footer a:hover { text-decoration: underline; }
   .presets { flex-wrap: wrap; overflow-x: visible; }
   .input-grid.three { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+/* ── 월배당 계산기 (dividend.html) ─────────────────────────── */
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.chip {
+  border: 1px solid var(--border); background: var(--card2); color: var(--text);
+  font-family: inherit; font-size: 12px; font-weight: 700;
+  padding: 7px 11px; border-radius: 999px; cursor: pointer;
+}
+.chip:active { transform: scale(0.97); }
+.chip.active { border-color: rgba(56,211,153,0.6); color: var(--accent); }
+.field-note { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+.field-note b { color: var(--gold); font-weight: 700; }
+.hero-val.big { font-size: 30px; line-height: 1.25; color: var(--accent); }
+.hero-val.big small { font-size: 15px; font-weight: 700; color: var(--muted); margin-right: 4px; }
+.seg-btn .seg-main { display: block; font-size: 12.5px; line-height: 1.35; }
+.seg-btn .seg-sub { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 1px; }
+.seg-btn.active .seg-sub { color: var(--accent); }
+.link-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--card2); border: 1px solid var(--border); border-radius: 14px;
+  padding: 12px 14px; margin-top: 10px;
+  color: var(--text); text-decoration: none; font-size: 13.5px; font-weight: 700;
+}
+.link-btn:hover { border-color: rgba(56,211,153,0.5); }
+.link-btn .arrow { color: var(--accent); font-size: 15px; flex: 0 0 auto; }
+.reverse-out { font-size: 17px; font-weight: 800; color: var(--gold); padding: 9px 0; }
+@media (min-width: 640px) {
+  .hero-val.big { font-size: 42px; }
+  .seg-btn .seg-main { font-size: 14px; }
+}
+
+/* ── 카테고리 카드형 메뉴 ─────────────────────────────────── */
+.calc-menu { margin: 0 0 10px; }
+.calc-menu > summary {
+  list-style: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--text);
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 9px 13px;
+}
+.calc-menu > summary::-webkit-details-marker { display: none; }
+.calc-menu > summary::after { content: "▾"; font-size: 10px; color: var(--muted); margin-left: 2px; }
+.calc-menu[open] > summary { border-color: rgba(56,211,153,0.5); color: var(--accent); }
+.calc-menu[open] > summary::after { content: "▴"; }
+.menu-here { color: var(--muted); font-weight: 600; }
+
+.hub { display: grid; gap: 12px; margin-bottom: 14px; }
+.calc-menu .hub { margin: 10px 0 16px; }
+.hub-cat-title {
+  font-size: 11.5px; font-weight: 800; color: var(--muted);
+  letter-spacing: -0.1px; margin-bottom: 6px;
+}
+.hub-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.hub-card {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 13px; padding: 10px 11px;
+  text-decoration: none; color: var(--text); min-width: 0;
+}
+.hub-card:hover { border-color: rgba(56,211,153,0.45); }
+.hub-card.current {
+  border-color: rgba(56,211,153,0.6);
+  background: linear-gradient(135deg, #13283d, #131a2e);
+}
+.hub-ico { font-size: 17px; line-height: 1.2; flex: 0 0 auto; }
+.hub-txt { min-width: 0; }
+.hub-txt b { display: block; font-size: 12.5px; font-weight: 800; letter-spacing: -0.2px; }
+.hub-txt small { display: block; font-size: 10.5px; color: var(--muted); line-height: 1.45; margin-top: 2px; }
+.hub-card.current .hub-txt b { color: var(--accent); }
+@media (min-width: 640px) {
+  .hub-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+  .hub-txt b { font-size: 13.5px; }
+  .hub-txt small { font-size: 11.5px; }
+}
+
+/* ── 체크박스 줄 · 점수 막대 (청약·육아휴직) ─────────────── */
+.check-line {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; color: var(--text); font-weight: 600;
+  margin-top: 10px; cursor: pointer;
+}
+.check-line input[type="checkbox"] {
+  width: 17px; height: 17px; accent-color: var(--accent); margin: 0; flex: 0 0 auto;
+}
+.score-row { margin: 12px 0 0; }
+.score-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 12.5px; color: var(--muted); font-weight: 600;
+}
+.score-head b { font-size: 15px; color: var(--text); font-weight: 800; }
+.score-track {
+  height: 8px; border-radius: 999px; background: #263252; overflow: hidden; margin: 6px 0 4px;
+}
+.score-fill { height: 100%; border-radius: 999px; transition: width 0.25s; }
+.score-fill.blue { background: var(--accent2); }
+.score-fill.green { background: var(--accent); }
+.score-fill.gold { background: var(--gold); }
+.score-note { font-size: 11.5px; color: var(--muted); }
+
+/* ── 허브 상단 문구 · 섹션 제목 ─────────────────────────────── */
+.hub-heading {
+  font-size: 11.5px; font-weight: 700; color: var(--muted);
+  margin: 0 0 8px 2px; letter-spacing: -0.1px;
+}
+.block-title {
+  font-size: 16px; font-weight: 800; letter-spacing: -0.3px;
+  margin: 22px 0 2px;
+}
+.block-sub { font-size: 12.5px; color: var(--muted); margin: 0 0 10px; }
+@media (min-width: 640px) {
+  .block-title { font-size: 18px; }
+  .block-sub { font-size: 13.5px; }
+}

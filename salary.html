@@ -114,16 +114,40 @@
 <div class="wrap">
   <div class="header">
     <div class="title"><a href="./">🧮 생활·금융 계산기</a>
-      <small>부동산·대출 · 연봉·세금 · 연차·퇴직금 · 실업급여</small>
+      <small>월배당 · 부동산·대출 · 연봉·세금 · 연차·퇴직금 · 실업급여</small>
     </div>
   </div>
 
-  <nav class="site-nav">
-    <a href="./">복리·적립</a>
-    <a href="loan.html">부동산·대출</a>
-    <a href="salary.html" class="current">연봉·세금</a>
-    <a href="leave.html">연차·퇴직금</a>
-    <a href="unemployment.html">실업급여</a>
+  <nav class="calc-menu-wrap" aria-label="계산기 전체 메뉴">
+    <details class="calc-menu">
+      <summary>☰ 전체 계산기 <span class="menu-here">· 연봉 실수령</span></summary>
+      <div class="hub">
+        <div class="hub-cat">
+          <div class="hub-cat-title">① 금융·투자</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="./"><span class="hub-ico">📈</span><span class="hub-txt"><b>복리·적립식</b><small>적립·복리로 목표 자산 계산</small></span></a>
+            <a class="hub-card" href="dividend.html"><span class="hub-ico">💰</span><span class="hub-txt"><b>주식·ETF 월배당</b><small>세후 월 배당금 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">② 부동산·주거</div>
+          <div class="hub-cards">
+            <a class="hub-card" href="loan.html"><span class="hub-ico">🏠</span><span class="hub-txt"><b>부동산·대출</b><small>주담대 월 상환액·총 이자</small></span></a>
+            <a class="hub-card" href="brokerage.html"><span class="hub-ico">🧾</span><span class="hub-txt"><b>부동산 복비</b><small>매매·전세·월세 중개보수</small></span></a>
+            <a class="hub-card" href="subscription.html"><span class="hub-ico">🎯</span><span class="hub-txt"><b>청약 가점</b><small>84점 만점 가점 계산</small></span></a>
+          </div>
+        </div>
+        <div class="hub-cat">
+          <div class="hub-cat-title">③ 직장·생활</div>
+          <div class="hub-cards">
+            <a class="hub-card current" href="salary.html"><span class="hub-ico">💵</span><span class="hub-txt"><b>연봉 실수령</b><small>4대보험·세금 뺀 월급</small></span></a>
+            <a class="hub-card" href="leave.html"><span class="hub-ico">🗓️</span><span class="hub-txt"><b>연차·퇴직금</b><small>연차 일수·퇴직금</small></span></a>
+            <a class="hub-card" href="unemployment.html"><span class="hub-ico">🧳</span><span class="hub-txt"><b>실업급여</b><small>구직급여 총 수령액</small></span></a>
+            <a class="hub-card" href="parental.html"><span class="hub-ico">👶</span><span class="hub-txt"><b>출산·육아휴직</b><small>육아휴직 급여·6+6</small></span></a>
+          </div>
+        </div>
+      </div>
+    </details>
   </nav>
 
   <nav class="section-nav">
@@ -286,11 +310,15 @@
 
   <section class="doc">
     <h2>이 사이트의 다른 계산기</h2>
-    <ul>
+        <ul>
       <li><a href="./"><strong>복리·적립식 계산기</strong></a> — 적립식 투자와 목돈 운용의 복리 결과를 계산합니다.</li>
+      <li><a href="dividend.html"><strong>월배당 계산기</strong></a> — 투자금과 배당률, 계좌 세율로 세후 월 배당금과 필요 자산을 계산합니다.</li>
       <li><a href="loan.html"><strong>부동산·주담대 계산기</strong></a> — 상환방식별 월 상환액과 총 이자를 비교합니다.</li>
+      <li><a href="brokerage.html"><strong>부동산 복비 계산기</strong></a> — 매매·전세·월세 법정 중개보수 상한과 부가세를 계산합니다.</li>
+      <li><a href="subscription.html"><strong>청약 가점 계산기</strong></a> — 무주택기간·부양가족·통장 기간으로 84점 만점 가점을 계산합니다.</li>
       <li><a href="leave.html"><strong>연차·퇴직금 계산기</strong></a> — 법정 연차 일수와 예상 퇴직금을 계산합니다.</li>
       <li><a href="unemployment.html"><strong>실업급여 계산기</strong></a> — 구직급여 일액과 총 수령액을 계산합니다.</li>
+      <li><a href="parental.html"><strong>출산·육아휴직 급여 계산기</strong></a> — 통상임금으로 월별 육아휴직 급여와 6+6을 계산합니다.</li>
     </ul>
   </section>
 
@@ -340,10 +368,14 @@
     <p>2026년 요율(국민연금 9.5%·건강보험 7.19%·장기요양 0.9448%·고용보험 1.8%)과 소득세 기본세율을 기준으로 계산합니다. 실제 급여명세서와는 원천징수 방식·개인별 공제에 따라 차이가 있을 수 있으며, 세무 판단의 근거가 아닙니다.</p>
     <div class="footer-links">
       <a href="./">복리·적립</a>
+      <a href="dividend.html">월배당</a>
       <a href="loan.html">부동산·대출</a>
+      <a href="brokerage.html">부동산 복비</a>
+      <a href="subscription.html">청약 가점</a>
       <a href="salary.html">연봉·세금</a>
       <a href="leave.html">연차·퇴직금</a>
       <a href="unemployment.html">실업급여</a>
+      <a href="parental.html">출산·육아휴직</a>
       <a href="privacy.html">개인정보처리방침 및 광고 고지</a>
     </div>
     <p>© 2026 생활·금융 계산기. All rights reserved.</p>
