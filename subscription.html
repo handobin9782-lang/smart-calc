@@ -288,22 +288,28 @@
     </div>
 
     <h3>청약통장 가입기간 점수표</h3>
-    <div class="table-scroll">
-      <table class="doc-table">
-        <thead><tr><th>가입기간</th><th>점수</th><th>가입기간</th><th>점수</th></tr></thead>
-        <tbody>
-          <tr><td>6개월 미만</td><td>1점</td><td>8년 ~ 9년</td><td>10점</td></tr>
-          <tr><td>6개월 ~ 1년</td><td>2점</td><td>9년 ~ 10년</td><td>11점</td></tr>
-          <tr><td>1년 ~ 2년</td><td>3점</td><td>10년 ~ 11년</td><td>12점</td></tr>
-          <tr><td>2년 ~ 3년</td><td>4점</td><td>11년 ~ 12년</td><td>13점</td></tr>
-          <tr><td>3년 ~ 4년</td><td>5점</td><td>12년 ~ 13년</td><td>14점</td></tr>
-          <tr><td>4년 ~ 5년</td><td>6점</td><td>13년 ~ 14년</td><td>15점</td></tr>
-          <tr><td>5년 ~ 6년</td><td>7점</td><td>14년 ~ 15년</td><td>16점</td></tr>
-          <tr><td>6년 ~ 7년</td><td>8점</td><td>15년 이상</td><td>17점</td></tr>
-          <tr><td>7년 ~ 8년</td><td>9점</td><td></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="doc-table">
+      <thead><tr><th>청약통장 가입기간</th><th>점수</th></tr></thead>
+      <tbody>
+        <tr><td>6개월 미만</td><td>1점</td></tr>
+        <tr><td>6개월 ~ 1년</td><td>2점</td></tr>
+        <tr><td>1년 ~ 2년</td><td>3점</td></tr>
+        <tr><td>2년 ~ 3년</td><td>4점</td></tr>
+        <tr><td>3년 ~ 4년</td><td>5점</td></tr>
+        <tr><td>4년 ~ 5년</td><td>6점</td></tr>
+        <tr><td>5년 ~ 6년</td><td>7점</td></tr>
+        <tr><td>6년 ~ 7년</td><td>8점</td></tr>
+        <tr><td>7년 ~ 8년</td><td>9점</td></tr>
+        <tr><td>8년 ~ 9년</td><td>10점</td></tr>
+        <tr><td>9년 ~ 10년</td><td>11점</td></tr>
+        <tr><td>10년 ~ 11년</td><td>12점</td></tr>
+        <tr><td>11년 ~ 12년</td><td>13점</td></tr>
+        <tr><td>12년 ~ 13년</td><td>14점</td></tr>
+        <tr><td>13년 ~ 14년</td><td>15점</td></tr>
+        <tr><td>14년 ~ 15년</td><td>16점</td></tr>
+        <tr><td>15년 이상</td><td>17점</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="doc" id="how">
@@ -481,6 +487,25 @@ function calcScore() {
     ? `만점까지 <b>${remain}점</b> 남았습니다. 항목별로는 무주택기간 ${32 - sHome}점, 부양가족 ${35 - sDep}점, 통장 ${17 - sAccount}점이 남아 있습니다.`
     : '84점 만점입니다.';
 }
+
+// URL 파라미터 (예: subscription.html?home=60&depend=1&account=60&spouse=0&under30=1) — 값은 개월 수
+(function readParams() {
+  try {
+    const q = new URLSearchParams(location.search);
+    const setMonths = (prefix, total) => {
+      if (total === null || isNaN(total)) return;
+      document.getElementById(prefix + '-y').value = Math.floor(total / 12);
+      document.getElementById(prefix + '-m').value = total % 12;
+    };
+    if (q.has('home')) setMonths('home', parseFloat(q.get('home')));
+    if (q.has('account')) setMonths('account', parseFloat(q.get('account')));
+    if (q.has('spouse')) setMonths('spouse', parseFloat(q.get('spouse')));
+    if (q.has('depend')) document.getElementById('depend').value = Math.min(6, Math.max(0, parseInt(q.get('depend'))));
+    if (q.get('under30') === '1') document.getElementById('under30').checked = true;
+  } catch (e) {}
+})();
+
+calcScore();
 </script>
 </body>
 </html>

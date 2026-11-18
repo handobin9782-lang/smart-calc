@@ -481,7 +481,7 @@ function calcParental() {
 
   const cappedRows = rows.filter(r => r.capped);
   document.getElementById('res-cap-note').innerHTML = cappedRows.length
-    ? `상한액이 적용된 달이 <b>${cappedRows.length}개월</b>입니다. 통상임금이 상한보다 높아 ${fmtWon(rows.reduce((s, r) => s + Math.max(0, wage * r.rate - r.cap), 0))}이(가) 상한에 걸렸습니다.`
+    ? `상한액이 적용된 달이 <b>${cappedRows.length}개월</b>입니다. 상한을 넘는 ${fmtWon(rows.reduce((s, r) => s + Math.max(0, wage * r.rate - r.cap), 0))}은 지급되지 않습니다.`
     : '모든 달이 통상임금의 100%·80% 그대로 지급됩니다(상한 미적용).';
 
   document.getElementById('chart-note').textContent =
