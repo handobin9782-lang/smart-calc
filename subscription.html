@@ -494,8 +494,11 @@ function calcScore() {
     const q = new URLSearchParams(location.search);
     const setMonths = (prefix, total) => {
       if (total === null || isNaN(total)) return;
-      document.getElementById(prefix + '-y').value = Math.floor(total / 12);
-      document.getElementById(prefix + '-m').value = total % 12;
+      const yEl = document.getElementById(prefix + '-y');
+      const mEl = document.getElementById(prefix + '-m');
+      if (!yEl) return;
+      yEl.value = Math.floor(total / 12);
+      if (mEl) mEl.value = total % 12;
     };
     if (q.has('home')) setMonths('home', parseFloat(q.get('home')));
     if (q.has('account')) setMonths('account', parseFloat(q.get('account')));
